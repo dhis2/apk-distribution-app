@@ -1,10 +1,10 @@
 import i18n from '@dhis2/d2-i18n'
 import classnames from 'classnames'
 import styles from "./ApkList.module.css";
-import {Icons} from "../../components";
-import {DownloadButton} from "../../components/DownloadButton/DownloadButton";
+import {DownloadButton, Icons} from "../../components";
 import PropTypes from "prop-types";
 import React from "react";
+//import {UploadApkButton} from "../UploadApk";
 
 export const AboutSection = ({latest}) => (
     <section
@@ -30,6 +30,8 @@ export const AboutSection = ({latest}) => (
                 {i18n.t('Latest version {{version}}', { version: latest.version })}
             </p>
         </div>
+
+        {/*<UploadApkButton/>*/}
     </section>
 )
 
