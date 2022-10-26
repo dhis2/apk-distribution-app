@@ -1,0 +1,70 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"POT-Creation-Date: 2022-10-26T20:45:28.770Z\n"
+"PO-Revision-Date: 2022-10-26T20:45:28.770Z\n"
+
+msgid "Hello {{name}}"
+msgstr "Hello {{name}}"
+
+msgid "Welcome to DHIS2!"
+msgstr "Welcome to DHIS2!"
+
+msgid "Download"
+msgstr "Download"
+
+msgid "App Version"
+msgstr "App Version"
+
+msgid "Channel"
+msgstr "Channel"
+
+msgid "DHIS2 version"
+msgstr "DHIS2 version"
+
+msgid "Android OS version"
+msgstr "Android OS version"
+
+msgid "Minimum"
+msgstr "Minimum"
+
+msgid "Recommended"
+msgstr "Recommended"
+
+msgid "Android Capture app"
+msgstr "Android Capture app"
+
+msgid "All versions of the application"
+msgstr "All versions of the application"
+
+msgid "Description"
+msgstr "Description"
+
+msgid ""
+"New generation of DHIS2 Android Apps for data sets, events and tracker data "
+"capture. Configurable feel and look, easier login and enhanced data "
+"protection, attractive and user friendly navigation. Search/registration "
+"integrated for tracker, improved tracker dashboard, pictorial data entry "
+"for events, event completeness information, and many more."
+msgstr ""
+"New generation of DHIS2 Android Apps for data sets, events and tracker data "
+"capture. Configurable feel and look, easier login and enhanced data "
+"protection, attractive and user friendly navigation. Search/registration "
+"integrated for tracker, improved tracker dashboard, pictorial data entry "
+"for events, event completeness information, and many more."
+
+msgid ""
+"This app is fully functional offline enabling health workers in areas where "
+"there is limited or no Internet connection, continue with their regular "
+"work."
+msgstr ""
+"This app is fully functional offline enabling health workers in areas where "
+"there is limited or no Internet connection, continue with their regular "
+"work."
+
+msgid "Latest version {{version}}"
+msgstr "Latest version {{version}}"
