@@ -7,7 +7,7 @@ import {HashRouter, Navigate, Route, Routes} from "react-router-dom";
 const RouterP = () => (
     <Routes>
         <Route exact path="/" element={<ApkList/>} />
-        <Route path="/new" element={<UploadApk/>} />
+        {/*<Route path="/new" element={<UploadApk/>} />*/}
         {/*No-match route - redirect to index*/}
         <Route render={() => <Navigate to="/" replace/>} />
     </Routes>
