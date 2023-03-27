@@ -1,4 +1,3 @@
-import React from 'react'
 import { useDataQuery } from '@dhis2/app-runtime'
 
 const query = {
@@ -12,6 +11,6 @@ export const useDataStore = () => {
 
     return {
         loading,
-        versionsData: data && data.dataStore
+        versionsData: data && data.dataStore,
     }
 }

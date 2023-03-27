@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './AppIcon.module.css'
 import capture1 from '../../img/capture-app.webp'
 import capture2 from '../../img/capture-app2.webp'
 import capture3 from '../../img/capture-app3.webp'
 import capture4 from '../../img/capture-app4.webp'
+import styles from './AppIcon.module.css'
 
-export const AppIcon = ({src}) => (
+export const AppIcon = ({ src }) => (
     <div className={styles.appIcon}>
         <img alt="App logo" src={src} loading="lazy" />
     </div>

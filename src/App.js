@@ -1,18 +1,18 @@
-import { CenteredContent, CssVariables, CssReset} from '@dhis2/ui'
+import { CenteredContent, CssVariables, CssReset } from '@dhis2/ui'
 import React from 'react'
 import classes from './App.module.css'
-import {ApkList} from "./pages";
+import { ApkList } from './pages'
 
-const MyApp = () => (
+const App = () => (
     <>
         <CssReset />
         <CssVariables colors spacers />
         <div className={classes.container}>
             <CenteredContent>
-                <ApkList/>
+                <ApkList />
             </CenteredContent>
         </div>
     </>
 )
 
-export default MyApp
+export default App
