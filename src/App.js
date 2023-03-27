@@ -1,15 +1,13 @@
-import { CenteredContent, CssVariables, CssReset} from '@dhis2/ui'
+import { CenteredContent, CssVariables, CssReset } from '@dhis2/ui'
 import React from 'react'
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
 import classes from './App.module.css'
-import {ApkList, UploadApk} from "./pages";
-import {HashRouter, Navigate, Route, Routes} from "react-router-dom";
+import { ApkList } from './pages'
 
 const RouterP = () => (
     <Routes>
-        <Route exact path="/" element={<ApkList/>} />
-        {/*<Route path="/new" element={<UploadApk/>} />*/}
-        {/*No-match route - redirect to index*/}
-        <Route render={() => <Navigate to="/" replace/>} />
+        <Route exact path="/" element={<ApkList />} />
+        <Route render={() => <Navigate to="/" replace />} />
     </Routes>
 )
 
@@ -20,7 +18,7 @@ const MyApp = () => (
             <CssVariables colors spacers />
             <div className={classes.container}>
                 <CenteredContent>
-                    <RouterP/>
+                    <RouterP />
                 </CenteredContent>
             </div>
         </HashRouter>

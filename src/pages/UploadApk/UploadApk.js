@@ -1,37 +1,21 @@
-import i18n from '@dhis2/d2-i18n'
-import {Card, Divider, CircularLoader, Modal, ModalContent} from '@dhis2/ui'
-import classnames from 'classnames'
+import { Modal, ModalContent } from '@dhis2/ui'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { Form } from './Form'
 
-import styles from "../ApkList/ApkList.module.css";
-import {AboutSection, HeaderContent} from "../ApkList/Sections";
+export const NewVersion = ({ isOpen, handleClose }) => (
+    <>
+        {isOpen && (
+            <Modal onClose={handleClose}>
+                <ModalContent>
+                    <Form />
+                </ModalContent>
+            </Modal>
+        )}
+    </>
+)
 
-import React from "react";
-import {Form} from "./Form";
-
-export const UploadApk = () => {
-
-
-    return (
-        /*<section className={classnames(styles.appCardSection, styles.appCard)}>
-            {/!*<p>Version</p>
-                <p>Minimum DHIS2 version</p>
-                <p>Recommended DHIS2 version</p>
-                <p>Minimum Android version</p>
-                <p>Recommended Android version</p>
-                <p>Download URL</p>
-                <button>create app version</button>*!/}
-            <Form/>
-        </section>*/
-        <Form/>
-    )
+NewVersion.propTypes = {
+    handleClose: PropTypes.func,
+    isOpen: PropTypes.bool,
 }
-
-export const NewVersion = ({isOpen, handleClose}) => (
-    isOpen && (
-    <Modal onClose={handleClose}>
-        <ModalContent>
-            <Form/>
-        </ModalContent>
-    </Modal>
-)
-)
