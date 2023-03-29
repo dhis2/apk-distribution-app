@@ -5,20 +5,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2022-10-27T14:04:24.830Z\n"
-"PO-Revision-Date: 2022-10-27T14:04:24.830Z\n"
+"POT-Creation-Date: 2023-03-29T19:45:34.576Z\n"
+"PO-Revision-Date: 2023-03-29T19:45:34.576Z\n"
 
 msgid "Download"
 msgstr "Download"
 
 msgid "App Version"
 msgstr "App Version"
-
-msgid "Channel"
-msgstr "Channel"
-
-msgid "DHIS2 version"
-msgstr "DHIS2 version"
 
 msgid "Android OS version"
 msgstr "Android OS version"
@@ -62,6 +56,39 @@ msgstr ""
 
 msgid "Latest version {{version}}"
 msgstr "Latest version {{version}}"
+
+msgid "Please provide a valid version"
+msgstr "Please provide a valid version"
+
+msgid "Please provide a valid URL"
+msgstr "Please provide a valid URL"
+
+msgid "Create app version"
+msgstr "Create app version"
+
+msgid "Version"
+msgstr "Version"
+
+msgid "e.g. 1.0.0"
+msgstr "e.g. 1.0.0"
+
+msgid "Minimum Android version"
+msgstr "Minimum Android version"
+
+msgid "Select a version"
+msgstr "Select a version"
+
+msgid "Recommended Android version"
+msgstr "Recommended Android version"
+
+msgid "Download URL"
+msgstr "Download URL"
+
+msgid "e.g. https://dhis2.org/demo"
+msgstr "e.g. https://dhis2.org/demo"
+
+msgid "Add URL where the APK is saved"
+msgstr "Add URL where the APK is saved"
 
 msgid "Upload new version"
 msgstr "Upload new version"
