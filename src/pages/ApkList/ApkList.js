@@ -1,14 +1,21 @@
 import i18n from '@dhis2/d2-i18n'
 import { Card, Divider, CircularLoader } from '@dhis2/ui'
 import classnames from 'classnames'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { VersionTable } from '../../components'
 import styles from './ApkList.module.css'
 import { AboutSection, HeaderContent } from './Sections'
 import { useDataStore } from './useDataStore'
 
 export const ApkList = () => {
-    const { loading, versionsData } = useDataStore()
+    const { loading, latestVersion, versions } = useDataStore()
+    const [apkList, setList] = useState([])
+    const [currentVersion, setVersion] = useState({})
+
+    useEffect(() => {
+        latestVersion && setVersion(latestVersion)
+        versions && setList(versions)
+    }, [latestVersion, versions])
 
     return (
         <Card className={styles.appCard}>
@@ -18,7 +25,12 @@ export const ApkList = () => {
                 <div className={styles.container}>
                     <HeaderContent text={i18n.t('Android Capture app')} />
                     <Divider />
-                    <AboutSection latest={versionsData.latest} />
+                    <AboutSection
+                        latest={currentVersion}
+                        updateVersion={setVersion}
+                        versions={apkList}
+                        handleList={setList}
+                    />
                     <Divider />
                     <h2
                         className={classnames(
@@ -31,7 +43,7 @@ export const ApkList = () => {
                     {loading ? (
                         <CircularLoader />
                     ) : (
-                        <VersionTable versions={versionsData.versions} />
+                        <VersionTable versions={apkList} />
                     )}
                 </div>
             )}
