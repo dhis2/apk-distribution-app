@@ -1,5 +1,6 @@
 import i18n from '@dhis2/d2-i18n'
 import { Button } from '@dhis2/ui'
+import isEmpty from 'lodash/isEmpty'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { UploadApk } from './UploadApk'
@@ -12,11 +13,13 @@ export const UploadApkButton = ({ updateVersion, versions, handleList }) => {
     }
 
     const saveNewVersion = (e) => {
-        updateVersion({
-            version: e.version,
-            downloadURL: e.downloadURL,
-        })
-        handleList([e, ...versions])
+        if (!isEmpty(e)) {
+            updateVersion({
+                version: e.version,
+                downloadURL: e.downloadURL,
+            })
+            handleList([e, ...versions])
+        }
         setOpen(false)
     }
 
