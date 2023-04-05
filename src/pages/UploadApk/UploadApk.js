@@ -13,9 +13,9 @@ import {
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { useUpdateVersions } from '../../hooks'
 import { androidOSVersion } from '../../shared'
 import { urlRegex, versionRegex } from '../../utils'
-import { useUpdateVersions } from '../ApkList/useDataStore'
 import styles from './Form.module.css'
 
 const versionValidationMessage = i18n.t('Please provide a valid version')
@@ -26,25 +26,28 @@ export const UploadApk = ({ isOpen, handleClose, versionList }) => {
     const { show } = useAlert(
         ({ version, success }) =>
             success
-                ? `Successfully version ${version} uploaded`
-                : `Error when uploading ${version} version`,
+                ? `The version ${version} has been successfully uploaded.`
+                : `Error occurred while uploading version ${version}.`,
         ({ success }) => (success ? { success: true } : { critical: true })
     )
 
     const handleSubmit = async (e) => {
-        try {
-            await mutateVersion({
+        const updatePromises = [
+            mutateVersion({
                 version: {
                     downloadURL: e.downloadURL,
                     version: e.version,
                 },
+            }),
+            mutateList({ versionList: [e, ...versionList] }),
+        ]
+
+        Promise.all(updatePromises)
+            .then(() => {
+                handleClose(e)
+                show({ version: e.version, success: true })
             })
-            await mutateList({ versionList: [e, ...versionList] })
-            handleClose(e)
-            show({ version: e.version, success: true })
-        } catch (error) {
-            show({ version: e.version, success: false })
-        }
+            .catch(() => show({ version: e.version, success: false }))
     }
 
     return (

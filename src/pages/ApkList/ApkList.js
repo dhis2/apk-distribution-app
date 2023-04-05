@@ -3,9 +3,9 @@ import { Card, Divider, CircularLoader } from '@dhis2/ui'
 import classnames from 'classnames'
 import React, { useState, useEffect } from 'react'
 import { VersionTable } from '../../components'
+import { useDataStore } from '../../hooks'
 import styles from './ApkList.module.css'
 import { AboutSection, HeaderContent } from './Sections'
-import { useDataStore } from './useDataStore'
 
 export const ApkList = () => {
     const { loading, latestVersion, versions } = useDataStore()

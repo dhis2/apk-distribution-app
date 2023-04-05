@@ -1,5 +1,5 @@
 import { useDataMutation, useDataQuery } from '@dhis2/app-runtime'
-import { LATEST_VERSION, NAMESPACE, VERSIONS } from '../../shared'
+import { LATEST_VERSION, NAMESPACE, VERSIONS } from '../shared'
 
 const query = {
     [LATEST_VERSION]: {
