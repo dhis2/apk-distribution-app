@@ -49,7 +49,7 @@ export const UploadApk = ({ isOpen, handleClose, versionList }) => {
     const isGreaterLatestVersion = (e) => {
         const latestVersion = createdVersions[0]
         return isGreaterVersion(latestVersion, e)
-            ? `Please provide a version greater than the latest uploaded version ${latestVersion}`
+            ? `Please provide a version higher than the latest uploaded version ${latestVersion}`
             : undefined
     }
 
@@ -59,7 +59,7 @@ export const UploadApk = ({ isOpen, handleClose, versionList }) => {
         if (androidMin && e) {
             error =
                 isGreaterVersion(androidMin, e) &&
-                `Please provide an android version greater than ${androidMin}`
+                `Please provide an android version higher than ${androidMin}`
         }
         return error
     }

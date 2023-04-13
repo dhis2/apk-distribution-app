@@ -29,25 +29,25 @@ test('"1.a.x" is a valid version', () => {
     expect(isValidVersion(url)).toBeFalsy()
 })
 
-test('"10.2.3" is greater than 8.5', () => {
+test('"10.2.3" is higher than 8.5', () => {
     const versionToCompare = '10.2.3'
     const version = '8.5'
     expect(isGreaterVersion(versionToCompare, version)).toBeTruthy()
 })
 
-test('"8.2.3" is not greater than 10.0', () => {
+test('"8.2.3" is not higher than 10.0', () => {
     const versionToCompare = '8.2.3'
     const version = '10.0'
     expect(isGreaterVersion(versionToCompare, version)).toBeFalsy()
 })
 
-test('"5.1.1" is not greater than 10.0', () => {
+test('"5.1.1" is not higher than 10.0', () => {
     const versionToCompare = '5.1.1'
     const version = '10.0'
     expect(isGreaterVersion(versionToCompare, version)).toBeFalsy()
 })
 
-test('"10.4.1" is not greater than 10.4.2', () => {
+test('"10.4.1" is not higher than 10.4.2', () => {
     const versionToCompare = '10.4.1'
     const version = '10.4.2'
     expect(isGreaterVersion(versionToCompare, version)).toBeFalsy()
