@@ -15,11 +15,21 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { useUpdateVersions } from '../../hooks'
 import { androidOSVersion } from '../../shared'
-import { urlRegex, versionRegex } from '../../utils'
+import {
+    isGreaterVersion,
+    isNotInArrayRegex,
+    urlRegex,
+    versionRegex,
+} from '../../utils'
 import styles from './Form.module.css'
 
 const versionValidationMessage = i18n.t('Please provide a valid version')
-const urlValidationMessage = i18n.t('Please provide a valid URL')
+const versionUniqueMessage = i18n.t(
+    'Please provide a version that has not already been created or used'
+)
+const urlValidationMessage = i18n.t(
+    'Please provide a valid URL that starts with http or https'
+)
 
 export const UploadApk = ({ isOpen, handleClose, versionList }) => {
     const { mutateVersion, mutateList } = useUpdateVersions()
@@ -30,6 +40,29 @@ export const UploadApk = ({ isOpen, handleClose, versionList }) => {
                 : `Error occurred while uploading version ${version}.`,
         ({ success }) => (success ? { success: true } : { critical: true })
     )
+
+    const createdVersions = versionList.reduce(
+        (acc, v) => [...acc, v.version],
+        []
+    )
+
+    const isGreaterLatestVersion = (e) => {
+        const latestVersion = createdVersions[0]
+        return isGreaterVersion(latestVersion, e)
+            ? `Please provide a version greater than the latest uploaded version ${latestVersion}`
+            : undefined
+    }
+
+    const isGreaterMinVersion = (form) => (e) => {
+        let error = undefined
+        const androidMin = form.getState().values?.androidOSVersion?.min
+        if (androidMin && e) {
+            error =
+                isGreaterVersion(androidMin, e) &&
+                `Please provide an android version greater than ${androidMin}`
+        }
+        return error
+    }
 
     const handleSubmit = async (e) => {
         const updatePromises = [
@@ -61,7 +94,12 @@ export const UploadApk = ({ isOpen, handleClose, versionList }) => {
                             </h2>
 
                             <ReactFinalForm.Form onSubmit={handleSubmit}>
-                                {({ handleSubmit, valid, submitting }) => (
+                                {({
+                                    handleSubmit,
+                                    valid,
+                                    submitting,
+                                    form,
+                                }) => (
                                     <form onSubmit={handleSubmit}>
                                         <ReactFinalForm.Field
                                             required
@@ -75,7 +113,14 @@ export const UploadApk = ({ isOpen, handleClose, versionList }) => {
                                                 createPattern(
                                                     versionRegex,
                                                     versionValidationMessage
-                                                )
+                                                ),
+                                                createPattern(
+                                                    isNotInArrayRegex(
+                                                        createdVersions
+                                                    ),
+                                                    versionUniqueMessage
+                                                ),
+                                                isGreaterLatestVersion
                                             )}
                                         />
                                         <ReactFinalForm.Field
@@ -95,6 +140,7 @@ export const UploadApk = ({ isOpen, handleClose, versionList }) => {
                                         />
                                         <ReactFinalForm.Field
                                             filterable
+                                            clearable
                                             name="androidOSVersion.recommended"
                                             label={i18n.t(
                                                 'Recommended Android version'
@@ -105,6 +151,7 @@ export const UploadApk = ({ isOpen, handleClose, versionList }) => {
                                             component={SingleSelectFieldFF}
                                             className={styles.field}
                                             options={androidOSVersion}
+                                            validate={isGreaterMinVersion(form)}
                                         />
                                         <ReactFinalForm.Field
                                             required
