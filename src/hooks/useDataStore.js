@@ -47,3 +47,31 @@ export const useUpdateVersions = () => {
         mutateList,
     }
 }
+
+/**
+ * create data store
+ * key: latestVersion
+ * key: versions
+ * */
+
+export const createLatestVersion = {
+    resource: `dataStore/${NAMESPACE}/${LATEST_VERSION}`,
+    type: 'create',
+    data: ({ version }) => ({ ...version }),
+}
+
+export const createVersions = {
+    resource: `dataStore/${NAMESPACE}/${VERSIONS}`,
+    type: 'create',
+    data: () => ({ versions: [] }),
+}
+
+export const useCreateDataStore = () => {
+    const [mutateVersion] = useDataMutation(createLatestVersion)
+    const [mutateList] = useDataMutation(createVersions)
+
+    return {
+        mutateVersion,
+        mutateList,
+    }
+}
