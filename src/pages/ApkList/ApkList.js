@@ -1,6 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
 import { Card, Divider, CircularLoader } from '@dhis2/ui'
 import classnames from 'classnames'
+import isEmpty from 'lodash/isEmpty'
 import React, { useState, useEffect } from 'react'
 import { VersionTable } from '../../components'
 import { useDataStore } from '../../hooks'
@@ -31,19 +32,27 @@ export const ApkList = () => {
                         versions={apkList}
                         handleList={setList}
                     />
-                    <Divider />
-                    <h2
-                        className={classnames(
-                            styles.appCardHeading,
-                            styles.appCardSection
-                        )}
-                    >
-                        {i18n.t('All versions of the application')}
-                    </h2>
                     {loading ? (
                         <CircularLoader />
                     ) : (
-                        <VersionTable versions={apkList} />
+                        <>
+                            {!isEmpty(apkList) && (
+                                <>
+                                    <Divider />
+                                    <h2
+                                        className={classnames(
+                                            styles.appCardHeading,
+                                            styles.appCardSection
+                                        )}
+                                    >
+                                        {i18n.t(
+                                            'All versions of the application'
+                                        )}
+                                    </h2>
+                                    <VersionTable versions={apkList} />
+                                </>
+                            )}
+                        </>
                     )}
                 </div>
             )}
