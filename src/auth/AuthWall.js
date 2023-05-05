@@ -1,4 +1,5 @@
 import { useAlert } from '@dhis2/app-runtime'
+import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { FirstTimeSetup } from '../components'
@@ -13,8 +14,12 @@ const AuthWall = ({ children }) => {
     const { show } = useAlert(
         ({ success }) =>
             success
-                ? 'The initial configuration of the app has been completed and it is now ready to use.'
-                : 'The initial configuration of the app encountered an error and it cannot be used at this time.',
+                ? i18n.t(
+                      'The initial configuration of the app has been completed and it is now ready to use.'
+                  )
+                : i18n.t(
+                      'The initial configuration of the app encountered an error and it cannot be used at this time.'
+                  ),
         ({ success }) => (success ? { success: true } : { critical: true })
     )
 
