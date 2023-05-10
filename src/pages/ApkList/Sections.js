@@ -2,7 +2,7 @@ import i18n from '@dhis2/d2-i18n'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { DownloadButton, Icons } from '../../components'
+import { DownloadButton, Figure } from '../../components'
 import { UploadApkButton } from '../UploadApk'
 import styles from './ApkList.module.css'
 
@@ -30,7 +30,7 @@ export const AboutSection = ({
         </div>
 
         <div>
-            <Icons />
+            <Figure />
         </div>
 
         <div>
