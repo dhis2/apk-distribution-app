@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-05-05T08:11:55.157Z\n"
-"PO-Revision-Date: 2023-05-05T08:11:55.157Z\n"
+"POT-Creation-Date: 2023-05-10T16:04:11.476Z\n"
+"PO-Revision-Date: 2023-05-10T16:04:11.476Z\n"
 
 msgid ""
 "The initial configuration of the app has been completed and it is now ready "
@@ -55,11 +55,20 @@ msgstr "Exit, do not apply settings"
 msgid "Set defaults and save"
 msgstr "Set defaults and save"
 
-msgid "App Version"
-msgstr "App Version"
+msgid "Latest"
+msgstr "Latest"
 
 msgid "Android OS version"
 msgstr "Android OS version"
+
+msgid "{{min}} (Minimum)"
+msgstr "{{min}} (Minimum)"
+
+msgid "{{recommended}} (Recommended)"
+msgstr "{{recommended}} (Recommended)"
+
+msgid "App Version"
+msgstr "App Version"
 
 msgid "Minimum"
 msgstr "Minimum"

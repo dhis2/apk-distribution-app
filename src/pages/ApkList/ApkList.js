@@ -3,7 +3,7 @@ import { Card, Divider, CircularLoader } from '@dhis2/ui'
 import classnames from 'classnames'
 import isEmpty from 'lodash/isEmpty'
 import React, { useState, useEffect } from 'react'
-import { VersionTable } from '../../components'
+import { VersionList } from '../../components'
 import { useDataStore } from '../../hooks'
 import styles from './ApkList.module.css'
 import { AboutSection, HeaderContent } from './Sections'
@@ -49,7 +49,10 @@ export const ApkList = () => {
                                             'All versions of the application'
                                         )}
                                     </h2>
-                                    <VersionTable versions={apkList} />
+                                    <VersionList
+                                        versions={apkList}
+                                        handleList={setList}
+                                    />
                                 </>
                             )}
                         </>

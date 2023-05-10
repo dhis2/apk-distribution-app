@@ -11,9 +11,9 @@ import {
 import PropTypes from 'prop-types'
 import React from 'react'
 import { DownloadButton } from '../DownloadButton/DownloadButton'
-import styles from './VersionTable.module.css'
+import styles from './WebTable.module.css'
 
-export const VersionTable = ({ versions }) => (
+export const WebTable = ({ versions }) => (
     <Table className={styles.table}>
         <TableHead>
             <TableRowHead>
@@ -49,6 +49,6 @@ export const VersionTable = ({ versions }) => (
     </Table>
 )
 
-VersionTable.propTypes = {
+WebTable.propTypes = {
     versions: PropTypes.array,
 }
