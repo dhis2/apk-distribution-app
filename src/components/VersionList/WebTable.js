@@ -13,25 +13,25 @@ import React from 'react'
 import { DownloadButton } from '../DownloadButton/DownloadButton'
 import styles from './WebTable.module.css'
 
-export const WebTable = ({ versions }) => (
-    <Table className={styles.table}>
+export const WebTable = ({ versions, disabled }) => (
+    <Table>
         <TableHead>
             <TableRowHead>
                 <TableCellHead dense>{i18n.t('App Version')}</TableCellHead>
-                <TableCellHead colSpan="2">
+                <TableCellHead dense colSpan="2">
                     {i18n.t('Android OS version')}
                 </TableCellHead>
-                <TableCellHead></TableCellHead>
+                {!disabled && <TableCellHead dense />}
             </TableRowHead>
             <TableRowHead>
-                <TableCellHead colSpan="1" />
+                <TableCellHead dense colSpan="1" />
                 <TableCellHead dense className={styles.subtitle}>
                     {i18n.t('Minimum')}
                 </TableCellHead>
                 <TableCellHead dense className={styles.subtitle}>
                     {i18n.t('Recommended')}
                 </TableCellHead>
-                <TableCellHead></TableCellHead>
+                {!disabled && <TableCellHead dense />}
             </TableRowHead>
         </TableHead>
         <TableBody>
@@ -40,9 +40,11 @@ export const WebTable = ({ versions }) => (
                     <TableCell>{version}</TableCell>
                     <TableCell>{androidOSVersion.min}</TableCell>
                     <TableCell>{androidOSVersion.recommended}</TableCell>
-                    <TableCell>
-                        <DownloadButton href={downloadURL} secondary />
-                    </TableCell>
+                    {!disabled && (
+                        <TableCell>
+                            <DownloadButton url={downloadURL} secondary />
+                        </TableCell>
+                    )}
                 </TableRow>
             ))}
         </TableBody>
@@ -50,5 +52,6 @@ export const WebTable = ({ versions }) => (
 )
 
 WebTable.propTypes = {
+    disabled: PropTypes.bool,
     versions: PropTypes.array,
 }

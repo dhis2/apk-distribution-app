@@ -1,7 +1,9 @@
 .appCard {
-    display: block !important;
-    max-width: 960px;
-    margin: auto;
+    max-width: 1200px;
+    margin-bottom: var(--spacers-dp48);
+    margin-top: var(--spacers-dp48);
+    display: flex !important;
+    justify-content: center;
 }
 
 .appCardSection {
@@ -19,19 +21,6 @@
     font-weight: 700;
     margin-top: var(--spacers-dp8);
     margin-bottom: 6px;
-}
-
-.appCardDeveloper {
-    display: block;
-    font-size: 16px;
-    margin-bottom: var(--spacers-dp8);
-    color: var(--colors-grey800);
-}
-
-.appCardType {
-    display: block;
-    font-size: 13px;
-    color: var(--colors-grey700);
 }
 
 .appCardHeading {
@@ -67,5 +56,5 @@
 }
 
 .container {
-    padding: 0 var(--spacers-dp24);
+    padding: 0 var(--spacers-dp24) var(--spacers-dp24);
 }

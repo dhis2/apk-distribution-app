@@ -11,6 +11,7 @@ export const AboutSection = ({
     updateVersion,
     versions,
     handleList,
+    disabled,
 }) => (
     <section className={classnames(styles.appCardSection, styles.aboutSection)}>
         <div>
@@ -42,15 +43,18 @@ export const AboutSection = ({
             </p>
         </div>
 
-        <UploadApkButton
-            updateVersion={updateVersion}
-            versions={versions}
-            handleList={handleList}
-        />
+        {!disabled && (
+            <UploadApkButton
+                updateVersion={updateVersion}
+                versions={versions}
+                handleList={handleList}
+            />
+        )}
     </section>
 )
 
 AboutSection.propTypes = {
+    disabled: PropTypes.bool,
     handleList: PropTypes.func,
     latest: PropTypes.object,
     updateVersion: PropTypes.func,
