@@ -1,5 +1,6 @@
 import i18n from '@dhis2/d2-i18n'
 import {
+    ButtonStrip,
     Table,
     TableBody,
     TableCell,
@@ -10,10 +11,11 @@ import {
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { DownloadButton } from '../DownloadButton/DownloadButton'
+import { DownloadButton } from '../Button'
+import { DeleteVersion } from './DeleteVersion'
 import styles from './WebTable.module.css'
 
-export const WebTable = ({ versions, disabled }) => (
+export const WebTable = ({ versions, handleList, disabled }) => (
     <Table>
         <TableHead>
             <TableRowHead>
@@ -42,7 +44,18 @@ export const WebTable = ({ versions, disabled }) => (
                     <TableCell>{androidOSVersion.recommended}</TableCell>
                     {!disabled && (
                         <TableCell>
-                            <DownloadButton url={downloadURL} secondary />
+                            <ButtonStrip>
+                                <DownloadButton
+                                    url={downloadURL}
+                                    secondary
+                                    disabled={disabled}
+                                />
+                                <DeleteVersion
+                                    version={version}
+                                    versionList={versions}
+                                    handleList={handleList}
+                                />
+                            </ButtonStrip>
                         </TableCell>
                     )}
                 </TableRow>
@@ -53,5 +66,6 @@ export const WebTable = ({ versions, disabled }) => (
 
 WebTable.propTypes = {
     disabled: PropTypes.bool,
+    handleList: PropTypes.func,
     versions: PropTypes.array,
 }

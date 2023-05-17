@@ -1,4 +1,4 @@
-export * from './DownloadButton/DownloadButton'
+export * from './Button'
 export * from './Figure/Figure'
 export * from './FirstTimeSetup/FirstTimeSetup'
 export * from './Page/Page'
