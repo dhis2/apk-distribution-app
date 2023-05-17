@@ -10,12 +10,6 @@
     padding: var(--spacers-dp12);
 }
 
-.appCardHeader {
-    display: grid;
-    grid-template-columns: 72px auto 67px;
-    grid-gap: var(--spacers-dp12);
-}
-
 .appCardName {
     font-size: 24px;
     font-weight: 700;
@@ -49,10 +43,6 @@
     margin-bottom: 0;
     font-size: 11px;
     color: var(--colors-grey700);
-}
-
-.divider {
-    max-width: 80%;
 }
 
 .container {
