@@ -86,7 +86,7 @@ export const UploadApk = ({ isOpen, handleClose, versionList }) => {
     return (
         <>
             {isOpen && (
-                <Modal onClose={handleClose}>
+                <Modal onClose={handleClose} className={styles.container}>
                     <ModalContent>
                         <>
                             <h2 className={styles.header}>
@@ -181,6 +181,7 @@ export const UploadApk = ({ isOpen, handleClose, versionList }) => {
                                             primary
                                             type="submit"
                                             disabled={!valid || submitting}
+                                            className={styles.button}
                                         >
                                             {i18n.t('Create app version')}
                                         </Button>

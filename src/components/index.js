@@ -1,5 +1,5 @@
-export * from './AppIcon/AppIcon'
 export * from './DownloadButton/DownloadButton'
+export * from './Figure/Figure'
 export * from './FirstTimeSetup/FirstTimeSetup'
 export * from './Page/Page'
-export * from './VersionTable/VersionTable'
+export * from './VersionList/VersionList'

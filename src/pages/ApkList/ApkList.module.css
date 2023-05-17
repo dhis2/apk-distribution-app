@@ -45,21 +45,6 @@
     color: var(--colors-grey700);
 }
 
-.sourceUrl:before {
-    display: block;
-    content: "";
-}
-
-.sourceUrl {
-    font-size: 14px;
-    color: var(--colors-blue700);
-    text-decoration: underline;
-}
-
-.sourceUrl:hover, .sourceUrl:focus {
-    color: var(--colors-grey900);
-}
-
 .container {
     padding: 0 var(--spacers-dp24) var(--spacers-dp24);
 }

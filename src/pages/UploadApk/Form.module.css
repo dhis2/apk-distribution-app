@@ -1,11 +1,3 @@
-.card {
-    display: block !important;
-    max-width: 960px;
-    min-width: 500px;
-    margin: auto;
-    padding: var(--spacers-dp16);
-}
-
 .header {
     font-size: 26px;
     font-weight: 400;
@@ -19,13 +11,26 @@
     max-width: 480px;
 }
 
-.helpTextLink {
-    text-decoration: underline;
-}
+@media only screen and (max-width: 768px) {
+    .container {
+        max-width: calc(-64px + 100vw) !important;
+        max-height: calc(-64px + 100vh) !important;
+    }
 
-.helpTextLink:hover, .helpTextLink:focus {
-    color: var(--colors-grey900);
-}
-.container {
-    padding: 0 var(--spacers-dp24);
+    .container div div{
+        max-width: initial;
+    }
+
+    .field {
+        margin-bottom: var(--spacers-dp32);
+    }
+
+    .field:first-of-type {
+        margin-top: var(--spacers-dp32);
+    }
+
+    .button {
+        margin-top: var(--spacers-dp24);
+        margin-bottom: var(--spacers-dp16);
+    }
 }
