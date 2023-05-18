@@ -2,6 +2,7 @@ import i18n from '@dhis2/d2-i18n'
 import { Card, Divider, CircularLoader } from '@dhis2/ui'
 import classnames from 'classnames'
 import isEmpty from 'lodash/isEmpty'
+import isEqual from 'lodash/isEqual'
 import React, { useState, useEffect } from 'react'
 import { useIsAuthorized } from '../../auth'
 import { VersionList } from '../../components'
@@ -19,6 +20,12 @@ export const ApkList = () => {
         latestVersion && setVersion(latestVersion)
         versions && setList(versions)
     }, [latestVersion, versions])
+
+    useEffect(() => {
+        if (!isEmpty(apkList)) {
+            !isEqual(latestVersion, apkList[0]) && setVersion(apkList[0])
+        }
+    }, [apkList])
 
     return (
         <Card className={styles.appCard}>

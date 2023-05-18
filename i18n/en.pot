@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-05-10T16:04:11.476Z\n"
-"PO-Revision-Date: 2023-05-10T16:04:11.476Z\n"
+"POT-Creation-Date: 2023-05-17T22:41:37.730Z\n"
+"PO-Revision-Date: 2023-05-17T22:41:37.730Z\n"
 
 msgid ""
 "The initial configuration of the app has been completed and it is now ready "
@@ -21,6 +21,9 @@ msgid ""
 msgstr ""
 "The initial configuration of the app encountered an error and it cannot be "
 "used at this time."
+
+msgid "Delete"
+msgstr "Delete"
 
 msgid "Download"
 msgstr "Download"
@@ -54,6 +57,27 @@ msgstr "Exit, do not apply settings"
 
 msgid "Set defaults and save"
 msgstr "Set defaults and save"
+
+msgid "The version {{version}} has been successfully deleted."
+msgstr "The version {{version}} has been successfully deleted."
+
+msgid "Error occurred while deleting version {{version}}."
+msgstr "Error occurred while deleting version {{version}}."
+
+msgid "Are you sure you want to delete {{name}} configuration?"
+msgstr "Are you sure you want to delete {{name}} configuration?"
+
+msgid "Delete app version"
+msgstr "Delete app version"
+
+msgid "Deleting an app version cannot be undone."
+msgstr "Deleting an app version cannot be undone."
+
+msgid "Are you sure you want to delete app version {{version}}?"
+msgstr "Are you sure you want to delete app version {{version}}?"
+
+msgid "Cancel"
+msgstr "Cancel"
 
 msgid "Latest"
 msgstr "Latest"
