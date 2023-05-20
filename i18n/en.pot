@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-05-17T22:41:37.730Z\n"
-"PO-Revision-Date: 2023-05-17T22:41:37.730Z\n"
+"POT-Creation-Date: 2023-05-18T00:24:20.753Z\n"
+"PO-Revision-Date: 2023-05-18T00:24:20.753Z\n"
 
 msgid ""
 "The initial configuration of the app has been completed and it is now ready "
@@ -63,9 +63,6 @@ msgstr "The version {{version}} has been successfully deleted."
 
 msgid "Error occurred while deleting version {{version}}."
 msgstr "Error occurred while deleting version {{version}}."
-
-msgid "Are you sure you want to delete {{name}} configuration?"
-msgstr "Are you sure you want to delete {{name}} configuration?"
 
 msgid "Delete app version"
 msgstr "Delete app version"
