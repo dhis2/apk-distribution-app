@@ -12,17 +12,7 @@ import isEmpty from 'lodash/isEmpty'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { useLatestRelease, useUpdateVersions } from '../../hooks'
-import { androidOSVersionMin, androidOSVersionRecommended } from '../../shared'
 import { DeleteButton } from '../Button'
-
-const createVersion = (version, defaultV) => ({
-    downloadURL: version.downloadURL || defaultV.downloadURL,
-    version: version.version || defaultV.version,
-    androidOSVersion: {
-        min: version.min || androidOSVersionMin,
-        recommended: version.recommended || androidOSVersionRecommended,
-    },
-})
 
 export const DeleteVersion = ({ version, versionList, handleList }) => {
     const release = useLatestRelease()
@@ -45,15 +35,14 @@ export const DeleteVersion = ({ version, versionList, handleList }) => {
 
     const handleDelete = () => {
         const filteredList = versionList.filter((e) => e.version !== version)
-        const updatedList = !isEmpty(filteredList)
-            ? filteredList
-            : [createVersion({}, release)]
+        const updatedList = !isEmpty(filteredList) ? filteredList : []
 
         const updatePromises = [
             mutateVersion({
                 version: {
-                    downloadURL: updatedList[0].downloadURL,
-                    version: updatedList[0].version,
+                    downloadURL:
+                        updatedList[0]?.downloadURL || release.downloadURL,
+                    version: updatedList[0]?.version || release.version,
                 },
             }),
             mutateList({ versionList: updatedList }),

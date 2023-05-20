@@ -6,11 +6,12 @@ import isEqual from 'lodash/isEqual'
 import React, { useState, useEffect } from 'react'
 import { useIsAuthorized } from '../../auth'
 import { VersionList } from '../../components'
-import { useDataStore } from '../../hooks'
+import { useDataStore, useLatestRelease } from '../../hooks'
 import styles from './ApkList.module.css'
 import { AboutSection, HeaderContent } from './Sections'
 
 export const ApkList = () => {
+    const release = useLatestRelease()
     const { hasAuthority } = useIsAuthorized()
     const { loading, latestVersion, versions } = useDataStore()
     const [apkList, setList] = useState([])
@@ -24,6 +25,8 @@ export const ApkList = () => {
     useEffect(() => {
         if (!isEmpty(apkList)) {
             !isEqual(latestVersion, apkList[0]) && setVersion(apkList[0])
+        } else {
+            release && setVersion(release)
         }
     }, [apkList])
 
