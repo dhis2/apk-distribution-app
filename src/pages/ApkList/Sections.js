@@ -48,6 +48,7 @@ export const AboutSection = ({
                 updateVersion={updateVersion}
                 versions={versions}
                 handleList={handleList}
+                latest={latest}
             />
         )}
     </section>

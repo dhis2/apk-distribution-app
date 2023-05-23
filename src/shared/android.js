@@ -15,3 +15,11 @@ export const androidOSVersion = [
     { label: '14.0', value: '14.0' },
     { label: '15.0', value: '15.0' },
 ]
+
+/**
+ * Android OS version based on documentation:
+ * https://docs.dhis2.org/en/implement/android-implementation/mobile-device-specifications.html
+ * */
+
+export const androidOSVersionMin = '7.0'
+export const androidOSVersionRecommended = '8.0'

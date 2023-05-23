@@ -2,14 +2,16 @@ import i18n from '@dhis2/d2-i18n'
 import { Card, Divider, CircularLoader } from '@dhis2/ui'
 import classnames from 'classnames'
 import isEmpty from 'lodash/isEmpty'
+import isEqual from 'lodash/isEqual'
 import React, { useState, useEffect } from 'react'
 import { useIsAuthorized } from '../../auth'
 import { VersionList } from '../../components'
-import { useDataStore } from '../../hooks'
+import { useDataStore, useLatestRelease } from '../../hooks'
 import styles from './ApkList.module.css'
 import { AboutSection, HeaderContent } from './Sections'
 
 export const ApkList = () => {
+    const release = useLatestRelease()
     const { hasAuthority } = useIsAuthorized()
     const { loading, latestVersion, versions } = useDataStore()
     const [apkList, setList] = useState([])
@@ -19,6 +21,14 @@ export const ApkList = () => {
         latestVersion && setVersion(latestVersion)
         versions && setList(versions)
     }, [latestVersion, versions])
+
+    useEffect(() => {
+        if (!isEmpty(apkList)) {
+            !isEqual(latestVersion, apkList[0]) && setVersion(apkList[0])
+        } else {
+            release && setVersion(release)
+        }
+    }, [apkList])
 
     return (
         <Card className={styles.appCard}>

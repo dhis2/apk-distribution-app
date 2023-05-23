@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-05-10T16:04:11.476Z\n"
-"PO-Revision-Date: 2023-05-10T16:04:11.476Z\n"
+"POT-Creation-Date: 2023-05-23T15:08:23.082Z\n"
+"PO-Revision-Date: 2023-05-23T15:08:23.082Z\n"
 
 msgid ""
 "The initial configuration of the app has been completed and it is now ready "
@@ -21,6 +21,9 @@ msgid ""
 msgstr ""
 "The initial configuration of the app encountered an error and it cannot be "
 "used at this time."
+
+msgid "Delete"
+msgstr "Delete"
 
 msgid "Download"
 msgstr "Download"
@@ -54,6 +57,24 @@ msgstr "Exit, do not apply settings"
 
 msgid "Set defaults and save"
 msgstr "Set defaults and save"
+
+msgid "The version {{version}} has been successfully deleted."
+msgstr "The version {{version}} has been successfully deleted."
+
+msgid "Error occurred while deleting version {{version}}."
+msgstr "Error occurred while deleting version {{version}}."
+
+msgid "Delete app version"
+msgstr "Delete app version"
+
+msgid "Deleting an app version cannot be undone."
+msgstr "Deleting an app version cannot be undone."
+
+msgid "Are you sure you want to delete app version {{version}}?"
+msgstr "Are you sure you want to delete app version {{version}}?"
+
+msgid "Cancel"
+msgstr "Cancel"
 
 msgid "Latest"
 msgstr "Latest"
@@ -118,6 +139,22 @@ msgstr "Please provide a version that has not already been created or used"
 
 msgid "Please provide a valid URL that starts with http or https"
 msgstr "Please provide a valid URL that starts with http or https"
+
+msgid "The version {{version}} has been successfully uploaded."
+msgstr "The version {{version}} has been successfully uploaded."
+
+msgid "Error occurred while uploading version {{version}}."
+msgstr "Error occurred while uploading version {{version}}."
+
+msgid ""
+"Please provide a version higher than the latest uploaded version "
+"{{latestVersion}}"
+msgstr ""
+"Please provide a version higher than the latest uploaded version "
+"{{latestVersion}}"
+
+msgid "Please provide an android version higher than {{androidMin}}"
+msgstr "Please provide an android version higher than {{androidMin}}"
 
 msgid "Create app version"
 msgstr "Create app version"
