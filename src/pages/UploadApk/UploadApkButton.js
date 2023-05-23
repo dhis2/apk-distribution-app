@@ -5,7 +5,12 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { UploadApk } from './UploadApk'
 
-export const UploadApkButton = ({ updateVersion, versions, handleList }) => {
+export const UploadApkButton = ({
+    updateVersion,
+    versions,
+    handleList,
+    latest,
+}) => {
     const [isOpen, setOpen] = useState(false)
 
     const uploadVersion = () => {
@@ -34,6 +39,7 @@ export const UploadApkButton = ({ updateVersion, versions, handleList }) => {
                     handleClose={saveNewVersion}
                     isOpen={isOpen}
                     versionList={versions}
+                    latest={latest}
                 />
             )}
         </div>
@@ -42,6 +48,7 @@ export const UploadApkButton = ({ updateVersion, versions, handleList }) => {
 
 UploadApkButton.propTypes = {
     handleList: PropTypes.func,
+    latest: PropTypes.object,
     updateVersion: PropTypes.func,
     versions: PropTypes.array,
 }

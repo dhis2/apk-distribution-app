@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-05-18T00:24:20.753Z\n"
-"PO-Revision-Date: 2023-05-18T00:24:20.753Z\n"
+"POT-Creation-Date: 2023-05-23T15:08:23.082Z\n"
+"PO-Revision-Date: 2023-05-23T15:08:23.082Z\n"
 
 msgid ""
 "The initial configuration of the app has been completed and it is now ready "
@@ -139,6 +139,22 @@ msgstr "Please provide a version that has not already been created or used"
 
 msgid "Please provide a valid URL that starts with http or https"
 msgstr "Please provide a valid URL that starts with http or https"
+
+msgid "The version {{version}} has been successfully uploaded."
+msgstr "The version {{version}} has been successfully uploaded."
+
+msgid "Error occurred while uploading version {{version}}."
+msgstr "Error occurred while uploading version {{version}}."
+
+msgid ""
+"Please provide a version higher than the latest uploaded version "
+"{{latestVersion}}"
+msgstr ""
+"Please provide a version higher than the latest uploaded version "
+"{{latestVersion}}"
+
+msgid "Please provide an android version higher than {{androidMin}}"
+msgstr "Please provide an android version higher than {{androidMin}}"
 
 msgid "Create app version"
 msgstr "Create app version"

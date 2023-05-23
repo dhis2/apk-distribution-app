@@ -11,6 +11,7 @@ import {
     createPattern,
     Button,
 } from '@dhis2/ui'
+import isEmpty from 'lodash/isEmpty'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useUpdateVersions } from '../../hooks'
@@ -31,37 +32,44 @@ const urlValidationMessage = i18n.t(
     'Please provide a valid URL that starts with http or https'
 )
 
-export const UploadApk = ({ isOpen, handleClose, versionList }) => {
+export const UploadApk = ({ isOpen, handleClose, versionList, latest }) => {
     const { mutateVersion, mutateList } = useUpdateVersions()
     const { show } = useAlert(
         ({ version, success }) =>
             success
-                ? `The version ${version} has been successfully uploaded.`
-                : `Error occurred while uploading version ${version}.`,
+                ? i18n.t(
+                      'The version {{version}} has been successfully uploaded.',
+                      { version }
+                  )
+                : i18n.t(
+                      'Error occurred while uploading version {{version}}.',
+                      { version }
+                  ),
         ({ success }) => (success ? { success: true } : { critical: true })
     )
 
-    const createdVersions = versionList.reduce(
-        (acc, v) => [...acc, v.version],
-        []
-    )
+    const createdVersions = (
+        !isEmpty(versionList) ? versionList : [latest]
+    ).reduce((acc, v) => [...acc, v.version], [])
 
     const isGreaterLatestVersion = (e) => {
         const latestVersion = createdVersions[0]
         return isGreaterVersion(latestVersion, e)
-            ? `Please provide a version higher than the latest uploaded version ${latestVersion}`
+            ? i18n.t(
+                  'Please provide a version higher than the latest uploaded version {{latestVersion}}',
+                  { latestVersion }
+              )
             : undefined
     }
 
     const isGreaterMinVersion = (form) => (e) => {
-        let error = undefined
         const androidMin = form.getState().values?.androidOSVersion?.min
-        if (androidMin && e) {
-            error =
-                isGreaterVersion(androidMin, e) &&
-                `Please provide an android version higher than ${androidMin}`
-        }
-        return error
+        return androidMin && e && isGreaterVersion(androidMin, e)
+            ? i18n.t(
+                  'Please provide an android version higher than {{androidMin}}',
+                  { androidMin }
+              )
+            : undefined
     }
 
     const handleSubmit = async (e) => {
@@ -199,5 +207,6 @@ export const UploadApk = ({ isOpen, handleClose, versionList }) => {
 UploadApk.propTypes = {
     handleClose: PropTypes.func,
     isOpen: PropTypes.bool,
+    latest: PropTypes.object,
     versionList: PropTypes.array,
 }
