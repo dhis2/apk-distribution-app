@@ -32,7 +32,7 @@ const urlValidationMessage = i18n.t(
     'Please provide a valid URL that starts with http or https'
 )
 
-export const UploadApk = ({ isOpen, handleClose, versionList, latest }) => {
+export const UploadApk = ({ isOpen, handleClose, versionList }) => {
     const { mutateVersion, mutateList } = useUpdateVersions()
     const { show } = useAlert(
         ({ version, success }) =>
@@ -48,9 +48,10 @@ export const UploadApk = ({ isOpen, handleClose, versionList, latest }) => {
         ({ success }) => (success ? { success: true } : { critical: true })
     )
 
-    const createdVersions = (
-        !isEmpty(versionList) ? versionList : [latest]
-    ).reduce((acc, v) => [...acc, v.version], [])
+    const createdVersions = (!isEmpty(versionList) ? versionList : []).reduce(
+        (acc, v) => [...acc, v.version],
+        []
+    )
 
     const isGreaterLatestVersion = (e) => {
         const latestVersion = createdVersions[0]

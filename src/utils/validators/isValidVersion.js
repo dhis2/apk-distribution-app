@@ -1,6 +1,6 @@
 import semver from 'semver'
 
-export const versionRegex = /^\d+\.\d+(\.\d+)?$/
+export const versionRegex = /^\d+\.\d+(\.\d+)?(\.\d+)?$/
 
 export const isValidVersion = (version) => versionRegex.test(version)
 
