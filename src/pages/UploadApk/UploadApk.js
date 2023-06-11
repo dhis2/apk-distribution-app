@@ -48,9 +48,10 @@ export const UploadApk = ({ isOpen, handleClose, versionList }) => {
         ({ success }) => (success ? { success: true } : { critical: true })
     )
 
-    const createdVersions = (
-        !isEmpty(versionList) ? versionList : []
-    ).reduce((acc, v) => [...acc, v.version], [])
+    const createdVersions = (!isEmpty(versionList) ? versionList : []).reduce(
+        (acc, v) => [...acc, v.version],
+        []
+    )
 
     const isGreaterLatestVersion = (e) => {
         const latestVersion = createdVersions[0]
