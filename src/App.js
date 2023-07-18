@@ -3,6 +3,8 @@ import React from 'react'
 import { AppProvider } from './app-context'
 import classes from './App.module.css'
 import { AuthWall } from './auth'
+// eslint-disable-next-line no-unused-vars
+import i18n from './locales/index'
 import { ApkList } from './pages'
 
 const App = () => (
