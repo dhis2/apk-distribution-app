@@ -1992,7 +1992,7 @@
     typeface-roboto "^0.0.75"
     typescript "^3.6.3"
 
-"@dhis2/cli-app-scripts@^10.1.2":
+"@dhis2/cli-app-scripts@^10.3.9":
   version "10.3.9"
   resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-10.3.9.tgz#8a971b52c08f165bcee78fb5bddfd0891ae7f7c2"
   integrity sha512-toltKttbok1ORBYvXYOtaIyUUs5C7lB3SEbZuk4KnibwmtG3v/37UEgXC6y0nc0L3XDBz/HK/LrbU4/7osfvcA==
