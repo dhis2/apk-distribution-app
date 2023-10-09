@@ -8,6 +8,7 @@ import { useIsAuthorized } from '../../auth'
 import { VersionList } from '../../components'
 import { useDataStore, useLatestRelease } from '../../hooks'
 import styles from './ApkList.module.css'
+import { ResetValues } from './ResetValues/ResetValues'
 import { AboutSection, HeaderContent } from './Sections'
 
 export const ApkList = () => {
@@ -71,6 +72,8 @@ export const ApkList = () => {
                             )}
                         </>
                     )}
+
+                    <ResetValues disabled={!hasAuthority} />
                 </div>
             )}
         </Card>
