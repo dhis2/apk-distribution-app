@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-05-23T15:08:23.082Z\n"
-"PO-Revision-Date: 2023-05-23T15:08:23.082Z\n"
+"POT-Creation-Date: 2023-10-09T19:20:00.151Z\n"
+"PO-Revision-Date: 2023-10-09T19:20:00.152Z\n"
 
 msgid ""
 "The initial configuration of the app has been completed and it is now ready "
@@ -102,6 +102,22 @@ msgstr "Android Capture app"
 
 msgid "All versions of the application"
 msgstr "All versions of the application"
+
+msgid "Erase all settings"
+msgstr "Erase all settings"
+
+msgid ""
+"This action will remove all APKs and configurations. Are you sure you want "
+"to erase all content and settings?"
+msgstr ""
+"This action will remove all APKs and configurations. Are you sure you want "
+"to erase all content and settings?"
+
+msgid "Erase"
+msgstr "Erase"
+
+msgid "Erase Settings"
+msgstr "Erase Settings"
 
 msgid "Description"
 msgstr "Description"
