@@ -19,6 +19,7 @@ import { androidOSVersion } from '../../shared'
 import {
     isGreaterVersion,
     isNotInArrayRegex,
+    padZeros,
     urlRegex,
     versionRegex,
 } from '../../utils'
@@ -74,22 +75,32 @@ export const UploadApk = ({ isOpen, handleClose, versionList }) => {
     }
 
     const handleSubmit = async (e) => {
+        const parsedVersion = padZeros(e.version)
         const updatePromises = [
             mutateVersion({
                 version: {
                     downloadURL: e.downloadURL,
-                    version: e.version,
+                    version: parsedVersion,
                 },
             }),
-            mutateList({ versionList: [e, ...versionList] }),
+            mutateList({
+                versionList: [
+                    {
+                        version: parsedVersion,
+                        downloadURL: e.downloadURL,
+                        androidOSVersion: e.androidOSVersion,
+                    },
+                    ...versionList,
+                ],
+            }),
         ]
 
         Promise.all(updatePromises)
             .then(() => {
                 handleClose(e)
-                show({ version: e.version, success: true })
+                show({ version: parsedVersion, success: true })
             })
-            .catch(() => show({ version: e.version, success: false }))
+            .catch(() => show({ version: parsedVersion, success: false }))
     }
 
     return (
@@ -114,7 +125,7 @@ export const UploadApk = ({ isOpen, handleClose, versionList }) => {
                                             required
                                             name="version"
                                             label={i18n.t('Version')}
-                                            placeholder={i18n.t('e.g. 1.0.0')}
+                                            placeholder={i18n.t('e.g. 2.9.0')}
                                             component={InputFieldFF}
                                             className={styles.field}
                                             validate={composeValidators(
