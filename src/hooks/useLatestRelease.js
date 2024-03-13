@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { padZeros } from '../utils'
 
 export const useLatestRelease = () => {
     const githubURL =
@@ -11,7 +12,7 @@ export const useLatestRelease = () => {
             const data = await response.json()
             setRelease({
                 downloadURL: data?.assets[0].browser_download_url,
-                version: data?.tag_name,
+                version: padZeros(data?.tag_name),
             })
         }
 
