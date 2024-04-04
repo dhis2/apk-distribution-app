@@ -6,8 +6,9 @@ import isEqual from 'lodash/isEqual'
 import React, { useState, useEffect } from 'react'
 import { useIsAuthorized } from '../../auth'
 import { VersionList } from '../../components'
-import { useDataStore, useLatestRelease } from '../../hooks'
+import { useDataStore, useLatestRelease, useUserGroups } from '../../hooks'
 import styles from './ApkList.module.css'
+import { prepareAPKListTable } from './helper'
 import { ResetValues } from './ResetValues/ResetValues'
 import { AboutSection, HeaderContent } from './Sections'
 
@@ -15,12 +16,15 @@ export const ApkList = () => {
     const release = useLatestRelease()
     const { hasAuthority } = useIsAuthorized()
     const { loading, latestVersion, versions } = useDataStore()
+    const { userGroups } = useUserGroups()
     const [apkList, setList] = useState([])
     const [currentVersion, setVersion] = useState({})
 
     useEffect(() => {
         latestVersion && setVersion(latestVersion)
-        versions && setList(versions)
+        if (!isEmpty(userGroups)) {
+            versions && setList(prepareAPKListTable(versions, userGroups))
+        }
     }, [latestVersion, versions])
 
     useEffect(() => {

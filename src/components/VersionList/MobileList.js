@@ -7,16 +7,18 @@ import styles from './MobileList.module.css'
 
 export const MobileList = ({ versions, disabled }) => (
     <>
-        {versions.map(({ version, androidOSVersion, downloadURL }, index) => (
-            <VersionCard
-                key={version}
-                latest={index === 0}
-                version={version}
-                androidOSVersion={androidOSVersion}
-                downloadURL={downloadURL}
-                disabled={disabled}
-            />
-        ))}
+        {versions.map(
+            ({ version, androidOSVersion, downloadURL, isDefault }) => (
+                <VersionCard
+                    key={version}
+                    isDefault={isDefault}
+                    version={version}
+                    androidOSVersion={androidOSVersion}
+                    downloadURL={downloadURL}
+                    disabled={disabled}
+                />
+            )
+        )}
     </>
 )
 
@@ -26,7 +28,7 @@ MobileList.propTypes = {
 }
 
 const VersionCard = ({
-    latest,
+    isDefault,
     version,
     androidOSVersion,
     downloadURL,
@@ -35,7 +37,7 @@ const VersionCard = ({
     <Card className={styles.cardContainer}>
         <Box className={styles.currentVersionContainer}>
             <p className={styles.versionLabel}>{version}</p>
-            {latest && <Tag positive>{i18n.t('Latest')}</Tag>}
+            {isDefault && <Tag positive>{i18n.t('Default')}</Tag>}
         </Box>
         <Box className={styles.versionContainer}>
             <p className={styles.versionTitle}>
@@ -60,6 +62,6 @@ VersionCard.propTypes = {
     androidOSVersion: PropTypes.object,
     disabled: PropTypes.bool,
     downloadURL: PropTypes.string,
-    latest: PropTypes.bool,
+    isDefault: PropTypes.bool,
     version: PropTypes.string,
 }

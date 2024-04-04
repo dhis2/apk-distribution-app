@@ -8,6 +8,7 @@ import {
     TableRow,
     TableRowHead,
     TableCellHead,
+    Tag,
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -23,6 +24,8 @@ export const WebTable = ({ versions, handleList, disabled }) => (
                 <TableCellHead dense colSpan="2">
                     {i18n.t('Android OS version')}
                 </TableCellHead>
+                <TableCellHead dense> {i18n.t('User Groups')}</TableCellHead>
+                <TableCellHead dense />
                 {!disabled && <TableCellHead dense />}
             </TableRowHead>
             <TableRowHead>
@@ -33,33 +36,57 @@ export const WebTable = ({ versions, handleList, disabled }) => (
                 <TableCellHead dense className={styles.subtitle}>
                     {i18n.t('Recommended')}
                 </TableCellHead>
+                <TableCellHead dense colSpan="2" />
                 {!disabled && <TableCellHead dense />}
             </TableRowHead>
         </TableHead>
         <TableBody>
-            {versions.map(({ version, androidOSVersion, downloadURL }) => (
-                <TableRow key={version}>
-                    <TableCell>{version}</TableCell>
-                    <TableCell>{androidOSVersion.min}</TableCell>
-                    <TableCell>{androidOSVersion.recommended}</TableCell>
-                    {!disabled && (
+            {versions.map(
+                ({
+                    version,
+                    androidOSVersion,
+                    downloadURL,
+                    userGroups,
+                    isDefault,
+                }) => (
+                    <TableRow key={version}>
+                        <TableCell>{version}</TableCell>
+                        <TableCell>{androidOSVersion.min}</TableCell>
+                        <TableCell>{androidOSVersion.recommended}</TableCell>
                         <TableCell>
-                            <ButtonStrip>
-                                <DownloadButton
-                                    url={downloadURL}
-                                    secondary
-                                    disabled={disabled}
-                                />
-                                <DeleteVersion
-                                    version={version}
-                                    versionList={versions}
-                                    handleList={handleList}
-                                />
-                            </ButtonStrip>
+                            {userGroups?.map(({ id, name }) => (
+                                <p
+                                    key={`${version}-${id}`}
+                                    className={styles.userGroup}
+                                >
+                                    {name}
+                                </p>
+                            ))}
                         </TableCell>
-                    )}
-                </TableRow>
-            ))}
+                        <TableCell>
+                            {isDefault && (
+                                <Tag positive>{i18n.t('Default')}</Tag>
+                            )}
+                        </TableCell>
+                        {!disabled && (
+                            <TableCell>
+                                <ButtonStrip>
+                                    <DownloadButton
+                                        url={downloadURL}
+                                        secondary
+                                        disabled={disabled}
+                                    />
+                                    <DeleteVersion
+                                        version={version}
+                                        versionList={versions}
+                                        handleList={handleList}
+                                    />
+                                </ButtonStrip>
+                            </TableCell>
+                        )}
+                    </TableRow>
+                )
+            )}
         </TableBody>
     </Table>
 )
