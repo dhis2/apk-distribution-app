@@ -13,7 +13,8 @@ import {
 } from '@dhis2/ui'
 import isEmpty from 'lodash/isEmpty'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useState } from 'react'
+import { UserGroupAccess } from '../../components'
 import { useUpdateVersions } from '../../hooks'
 import { androidOSVersion } from '../../shared'
 import {
@@ -24,6 +25,7 @@ import {
     versionRegex,
 } from '../../utils'
 import styles from './Form.module.css'
+import { prepareAPKListToSave, prepareAPK } from './helper'
 
 const versionValidationMessage = i18n.t('Please provide a valid version')
 const versionUniqueMessage = i18n.t(
@@ -34,6 +36,7 @@ const urlValidationMessage = i18n.t(
 )
 
 export const UploadApk = ({ isOpen, handleClose, versionList }) => {
+    const [groups, setGroups] = useState([])
     const { mutateVersion, mutateList } = useUpdateVersions()
     const { show } = useAlert(
         ({ version, success }) =>
@@ -76,6 +79,9 @@ export const UploadApk = ({ isOpen, handleClose, versionList }) => {
 
     const handleSubmit = async (e) => {
         const parsedVersion = padZeros(e.version)
+        const lastVersion = prepareAPK(e, groups)
+        const listToSave = prepareAPKListToSave([lastVersion, ...versionList])
+
         const updatePromises = [
             mutateVersion({
                 version: {
@@ -84,20 +90,13 @@ export const UploadApk = ({ isOpen, handleClose, versionList }) => {
                 },
             }),
             mutateList({
-                versionList: [
-                    {
-                        version: parsedVersion,
-                        downloadURL: e.downloadURL,
-                        androidOSVersion: e.androidOSVersion,
-                    },
-                    ...versionList,
-                ],
+                versionList: listToSave,
             }),
         ]
 
         Promise.all(updatePromises)
             .then(() => {
-                handleClose(e)
+                handleClose(lastVersion, listToSave)
                 show({ version: parsedVersion, success: true })
             })
             .catch(() => show({ version: parsedVersion, success: false }))
@@ -197,6 +196,14 @@ export const UploadApk = ({ isOpen, handleClose, versionList }) => {
                                                 )
                                             )}
                                         />
+
+                                        <div className={styles.field}>
+                                            <UserGroupAccess
+                                                groups={groups}
+                                                onChange={setGroups}
+                                            />
+                                        </div>
+
                                         <Button
                                             primary
                                             type="submit"
