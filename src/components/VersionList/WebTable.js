@@ -13,6 +13,7 @@ import {
 import PropTypes from 'prop-types'
 import React from 'react'
 import { DownloadButton } from '../Button'
+import { AssignUserGroup } from './AssignUserGroup'
 import { DeleteVersion } from './DeleteVersion'
 import styles from './WebTable.module.css'
 
@@ -75,6 +76,11 @@ export const WebTable = ({ versions, handleList, disabled }) => (
                                         url={downloadURL}
                                         secondary
                                         disabled={disabled}
+                                    />
+                                    <AssignUserGroup
+                                        version={version}
+                                        versionList={versions}
+                                        handleList={handleList}
                                     />
                                     <DeleteVersion
                                         version={version}
