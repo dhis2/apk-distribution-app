@@ -29,6 +29,10 @@ const groupsId = (groups) => map(groups, 'id')
  * If the APK version doesn't have a userGroup and is the last version uploaded, it should be considered as Default version.
  * */
 export const prepareAPKListToSave = (list) => {
+    if (isEmpty(list)) {
+        return []
+    }
+
     const updatedList = list.map((item) => {
         if (!isEmpty(item.userGroups)) {
             return { ...item, userGroups: groupsId(item.userGroups) }

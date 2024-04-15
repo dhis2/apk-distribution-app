@@ -7,8 +7,10 @@ import isEmpty from 'lodash/isEmpty'
 
 export const getDefaultVersion = (list) => {
     const defaultVersion = list.find((e) => isEmpty(e.userGroups) === true)
-    defaultVersion.isDefault = true
-    return defaultVersion
+    if (defaultVersion) {
+        defaultVersion.isDefault = true
+        return defaultVersion
+    }
 }
 
 /**
@@ -22,6 +24,10 @@ const getUserGroupName = (id, list) => list.find((e) => e.id === id)?.name
  * */
 
 export const prepareAPKListTable = (currentList, userGroups) => {
+    if (isEmpty(currentList)) {
+        return []
+    }
+
     const updatedList = currentList.map((item) => {
         if (!isEmpty(item.userGroups)) {
             const groups = item.userGroups.map((groupId) => ({

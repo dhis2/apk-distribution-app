@@ -15,7 +15,7 @@ export const updateList = (list, version, groups) => {
         )
     }
 
-    return orderVersions(prepareAPKListToSave(updatedList))
+    return prepareAPKListToSave(updatedList)
 }
 
 /**
@@ -28,3 +28,12 @@ export const orderVersions = (list) => orderBy(list, 'version', 'desc')
  * */
 export const getGroup = (id, list) =>
     list.find((e) => e.version === id)?.userGroups
+
+/**
+ * Delete element from list and update list
+ * */
+
+export const deleteElementList = (element, list) => {
+    const filteredList = list.filter((e) => e.version !== element)
+    return prepareAPKListToSave(filteredList)
+}
