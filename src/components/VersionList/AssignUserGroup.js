@@ -10,7 +10,7 @@ import {
 } from '@dhis2/ui'
 import isEmpty from 'lodash/isEmpty'
 import PropTypes from 'prop-types'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useUpdateVersions, useUserGroups } from '../../hooks'
 import { prepareAPKListTable } from '../../pages/ApkList/helper'
 import { UserGroupAccess } from '../UserGroupAccess'
@@ -34,11 +34,10 @@ export const AssignUserGroup = ({ version, versionList, handleList }) => {
         ({ success }) => (success ? { success: true } : { critical: true })
     )
 
-    useEffect(() => {
+    const handleButton = () => {
+        setOpen(true)
         setGroups(getGroup(version, versionList))
-    }, [version])
-
-    const handleButton = () => setOpen(true)
+    }
 
     const handleClose = () => {
         setOpen(false)
