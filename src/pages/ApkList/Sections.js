@@ -1,5 +1,6 @@
 import i18n from '@dhis2/d2-i18n'
 import classnames from 'classnames'
+import isEmpty from 'lodash/isEmpty'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { DownloadButton, Figure } from '../../components'
@@ -34,14 +35,20 @@ export const AboutSection = ({
             <Figure />
         </div>
 
-        <div>
-            <DownloadButton url={latest.downloadURL} primary small={false} />
-            <p className={styles.latestVersionDescription}>
-                {i18n.t('Latest version {{version}}', {
-                    version: latest.version,
-                })}
-            </p>
-        </div>
+        {!isEmpty(latest) && (
+            <div>
+                <DownloadButton
+                    url={latest.downloadURL}
+                    primary
+                    small={false}
+                />
+                <p className={styles.latestVersionDescription}>
+                    {i18n.t('Latest version {{version}}', {
+                        version: latest.version,
+                    })}
+                </p>
+            </div>
+        )}
 
         {!disabled && (
             <UploadApkButton
