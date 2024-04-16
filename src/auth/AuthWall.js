@@ -3,12 +3,11 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { FirstTimeSetup } from '../components'
-import { useCreateDataStore, useLatestRelease } from '../hooks'
+import { useCreateDataStore } from '../hooks'
 import { useIsAuthorized } from './useIsAuthorized'
 
 const AuthWall = ({ children }) => {
     const { hasAuthority, hasNamespace } = useIsAuthorized()
-    const release = useLatestRelease()
     const { mutateVersion, mutateList } = useCreateDataStore()
     const [hasDatastoreAccess, setDatastoreAccess] = useState(hasNamespace)
     const { show } = useAlert(
@@ -24,10 +23,7 @@ const AuthWall = ({ children }) => {
     )
 
     const handleSave = () => {
-        const createPromises = [
-            mutateVersion({ version: release }),
-            mutateList(),
-        ]
+        const createPromises = [mutateVersion({ version: {} }), mutateList()]
 
         Promise.all(createPromises)
             .then((response) => {
