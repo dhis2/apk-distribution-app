@@ -44,8 +44,8 @@ export const AssignUserGroup = ({ version, versionList, handleList }) => {
         setGroups([])
     }
 
-    const handleSave = () => {
-        const updatedList = updateList(versionList, version, groups)
+    const handleSave = (currentGroups) => {
+        const updatedList = updateList(versionList, version, currentGroups)
 
         const updatePromises = [
             mutateList({
@@ -56,7 +56,6 @@ export const AssignUserGroup = ({ version, versionList, handleList }) => {
         Promise.all(updatePromises)
             .then(() => {
                 handleList(prepareAPKListTable(updatedList, userGroups))
-                handleClose()
                 show({ version: version, success: true })
             })
             .catch(() => show({ version: version, success: false }))
@@ -93,14 +92,13 @@ const AssignModal = ({ onHandleClose, onHandleSave, groups, handleGroups }) => (
                 groups={groups || []}
                 onChange={handleGroups}
                 hasTitle={!isEmpty(groups)}
+                edit={true}
+                onSave={onHandleSave}
             />
         </ModalContent>
         <ModalActions>
             <ButtonStrip end>
-                <Button onClick={onHandleClose}>{i18n.t('Cancel')}</Button>
-                <Button onClick={onHandleSave} primary>
-                    {i18n.t('Save')}
-                </Button>
+                <Button onClick={onHandleClose}>{i18n.t('Close')}</Button>
             </ButtonStrip>
         </ModalActions>
     </Modal>
