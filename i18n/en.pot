@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-04-04T04:58:29.711Z\n"
-"PO-Revision-Date: 2024-04-04T04:58:29.711Z\n"
+"POT-Creation-Date: 2024-04-19T02:15:55.089Z\n"
+"PO-Revision-Date: 2024-04-19T02:15:55.089Z\n"
 
 msgid ""
 "The initial configuration of the app has been completed and it is now ready "
@@ -88,11 +88,8 @@ msgstr "Access"
 msgid "User Group access"
 msgstr "User Group access"
 
-msgid "Cancel"
-msgstr "Cancel"
-
-msgid "Save"
-msgstr "Save"
+msgid "Close"
+msgstr "Close"
 
 msgid "The version {{version}} has been successfully deleted."
 msgstr "The version {{version}} has been successfully deleted."
@@ -108,6 +105,9 @@ msgstr "Deleting an app version cannot be undone."
 
 msgid "Are you sure you want to delete app version {{version}}?"
 msgstr "Are you sure you want to delete app version {{version}}?"
+
+msgid "Cancel"
+msgstr "Cancel"
 
 msgid "Default"
 msgstr "Default"
