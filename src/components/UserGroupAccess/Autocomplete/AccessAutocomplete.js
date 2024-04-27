@@ -2,8 +2,8 @@ import { useDataQuery } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect, useCallback } from 'react'
-import { debounce } from '../helper'
 import { Autocomplete } from './Autocomplete'
+import { debounce, filterUsedElements } from './helper'
 
 const query = {
     search: {
@@ -14,7 +14,7 @@ const query = {
     },
 }
 
-export const AccessAutocomplete = ({ selected, onSelection }) => {
+export const AccessAutocomplete = ({ selected, onSelection, groups }) => {
     const [search, setSearch] = useState('')
     const [showResults, setShowResults] = useState(false)
     const { data, refetch, fetching } = useDataQuery(query, {
@@ -52,7 +52,7 @@ export const AccessAutocomplete = ({ selected, onSelection }) => {
     let results = []
 
     if (data?.search?.userGroups) {
-        results = data?.search?.userGroups
+        results = filterUsedElements(data?.search?.userGroups, groups)
     }
 
     return (
@@ -75,5 +75,6 @@ export const AccessAutocomplete = ({ selected, onSelection }) => {
 
 AccessAutocomplete.propTypes = {
     onSelection: PropTypes.func.isRequired,
+    groups: PropTypes.array,
     selected: PropTypes.string,
 }

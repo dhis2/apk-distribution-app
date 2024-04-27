@@ -15,7 +15,7 @@ export const UserGroupAccess = ({ groups, onChange, hasTitle }) => {
 
     return (
         <>
-            <AccessAdd onAdd={onAdd} />
+            <AccessAdd onAdd={onAdd} groups={groups || []} />
             <AccessList
                 groups={groups || []}
                 onRemove={onRemove}
