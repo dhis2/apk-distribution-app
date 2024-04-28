@@ -35,7 +35,7 @@ export const AccessAdd = ({ onAdd, groups }) => {
                 .form-wrapper {
                     color: ${colors.grey900};
                     margin-bottom: 21px;
-                    padding: 8px 12px;
+                    padding: 8px 12px 18px 8px;
                     border-radius: 5px;
                     display: flex;
                     align-items: flex-end;
