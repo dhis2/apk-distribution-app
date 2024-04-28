@@ -17,6 +17,7 @@ const query = {
 export const AccessAutocomplete = ({ selected, onSelection, groups }) => {
     const [search, setSearch] = useState('')
     const [showResults, setShowResults] = useState(false)
+    const [warning, setWarning] = useState(false)
     const { data, refetch, fetching } = useDataQuery(query, {
         lazy: true,
         onComplete: () => setShowResults(true),
@@ -36,16 +37,23 @@ export const AccessAutocomplete = ({ selected, onSelection, groups }) => {
     const debouncedRefetch = useCallback(debounce(refetch, 250), [refetch])
 
     useEffect(() => {
-        if (search && search === selected) {
+        if (!search) {
+            setWarning(false)
+            onSelection(null)
+            setShowResults(false)
             return
         }
 
-        if (search) {
-            debouncedRefetch({ search })
-        } else {
-            onSelection(null)
-            setShowResults(false)
+        if (search === selected) {
+            setWarning(false)
+            return
         }
+
+        if (!fetching && search !== selected) {
+            setWarning(true)
+        }
+
+        debouncedRefetch({ search })
     }, [search])
 
     // Concatenate all the results
@@ -61,6 +69,7 @@ export const AccessAutocomplete = ({ selected, onSelection, groups }) => {
             label={i18n.t('User Group')}
             loading={fetching}
             placeholder={i18n.t('Search')}
+            warning={warning}
             search={search}
             searchResults={showResults ? results : []}
             onClose={() => setShowResults(false)}
