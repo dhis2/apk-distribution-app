@@ -6,14 +6,13 @@ import isEqual from 'lodash/isEqual'
 import React, { useState, useEffect } from 'react'
 import { useIsAuthorized } from '../../auth'
 import { VersionList } from '../../components'
-import { useDataStore, useLatestRelease, useUserGroups } from '../../hooks'
+import { useDataStore, useUserGroups } from '../../hooks'
 import styles from './ApkList.module.css'
 import { prepareAPKListTable } from './helper'
 import { ResetValues } from './ResetValues/ResetValues'
 import { AboutSection, HeaderContent } from './Sections'
 
 export const ApkList = () => {
-    const release = useLatestRelease()
     const { hasAuthority } = useIsAuthorized()
     const { loading, latestVersion, versions } = useDataStore()
     const { userGroups } = useUserGroups()
@@ -21,8 +20,8 @@ export const ApkList = () => {
     const [currentVersion, setVersion] = useState({})
 
     useEffect(() => {
-        latestVersion && setVersion(latestVersion)
         if (!isEmpty(userGroups)) {
+            latestVersion && setVersion(latestVersion)
             versions && setList(prepareAPKListTable(versions, userGroups))
         }
     }, [latestVersion, versions, userGroups])
@@ -31,7 +30,7 @@ export const ApkList = () => {
         if (!isEmpty(apkList)) {
             !isEqual(latestVersion, apkList[0]) && setVersion(apkList[0])
         } else {
-            release && setVersion(release)
+            setVersion({})
         }
     }, [apkList])
 
@@ -77,7 +76,9 @@ export const ApkList = () => {
                         </>
                     )}
 
-                    <ResetValues disabled={!hasAuthority} />
+                    {!isEmpty(apkList) && (
+                        <ResetValues disabled={!hasAuthority} />
+                    )}
                 </div>
             )}
         </Card>
