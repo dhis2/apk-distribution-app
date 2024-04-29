@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-03-12T16:00:44.005Z\n"
-"PO-Revision-Date: 2024-03-12T16:00:44.005Z\n"
+"POT-Creation-Date: 2024-04-27T18:11:06.223Z\n"
+"PO-Revision-Date: 2024-04-27T18:11:06.223Z\n"
 
 msgid ""
 "The initial configuration of the app has been completed and it is now ready "
@@ -58,6 +58,45 @@ msgstr "Exit, do not apply settings"
 msgid "Set defaults and save"
 msgstr "Set defaults and save"
 
+msgid "Give access to a user group"
+msgstr "Give access to a user group"
+
+msgid "Give access"
+msgstr "Give access"
+
+msgid "Users groups that currently have access"
+msgstr "Users groups that currently have access"
+
+msgid "Remove access"
+msgstr "Remove access"
+
+msgid "User Group"
+msgstr "User Group"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "No user group match the search criteria"
+msgstr "No user group match the search criteria"
+
+msgid "The version {{version}} has been successfully updated."
+msgstr "The version {{version}} has been successfully updated."
+
+msgid "Error occurred while updating version {{version}}."
+msgstr "Error occurred while updating version {{version}}."
+
+msgid "Access"
+msgstr "Access"
+
+msgid "User Group access"
+msgstr "User Group access"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Save"
+msgstr "Save"
+
 msgid "The version {{version}} has been successfully deleted."
 msgstr "The version {{version}} has been successfully deleted."
 
@@ -73,11 +112,8 @@ msgstr "Deleting an app version cannot be undone."
 msgid "Are you sure you want to delete app version {{version}}?"
 msgstr "Are you sure you want to delete app version {{version}}?"
 
-msgid "Cancel"
-msgstr "Cancel"
-
-msgid "Latest"
-msgstr "Latest"
+msgid "Default"
+msgstr "Default"
 
 msgid "Android OS version"
 msgstr "Android OS version"
@@ -90,6 +126,9 @@ msgstr "{{recommended}} (Recommended)"
 
 msgid "App Version"
 msgstr "App Version"
+
+msgid "User Groups"
+msgstr "User Groups"
 
 msgid "Minimum"
 msgstr "Minimum"

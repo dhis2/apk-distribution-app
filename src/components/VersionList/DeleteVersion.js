@@ -8,14 +8,16 @@ import {
     ButtonStrip,
     Button,
 } from '@dhis2/ui'
-import isEmpty from 'lodash/isEmpty'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { useLatestRelease, useUpdateVersions } from '../../hooks'
+import { useLatestRelease, useUpdateVersions, useUserGroups } from '../../hooks'
+import { prepareAPKListTable } from '../../pages/ApkList/helper'
 import { DeleteButton } from '../Button'
+import { deleteElementList } from './helper'
 
 export const DeleteVersion = ({ version, versionList, handleList }) => {
     const release = useLatestRelease()
+    const { userGroups } = useUserGroups()
     const { mutateVersion, mutateList } = useUpdateVersions()
     const [openModal, setOpen] = useState(false)
     const { show } = useAlert(
@@ -34,23 +36,22 @@ export const DeleteVersion = ({ version, versionList, handleList }) => {
     const handleButton = () => setOpen(true)
 
     const handleDelete = () => {
-        const filteredList = versionList.filter((e) => e.version !== version)
-        const updatedList = !isEmpty(filteredList) ? filteredList : []
+        const filteredList = deleteElementList(version, versionList)
 
         const updatePromises = [
             mutateVersion({
                 version: {
                     downloadURL:
-                        updatedList[0]?.downloadURL || release.downloadURL,
-                    version: updatedList[0]?.version || release.version,
+                        filteredList[0]?.downloadURL || release.downloadURL,
+                    version: filteredList[0]?.version || release.version,
                 },
             }),
-            mutateList({ versionList: updatedList }),
+            mutateList({ versionList: filteredList }),
         ]
 
         Promise.all(updatePromises)
             .then(() => {
-                handleList(updatedList)
+                handleList(prepareAPKListTable(filteredList, userGroups))
                 handleClose()
                 show({ version: version, success: true })
             })
