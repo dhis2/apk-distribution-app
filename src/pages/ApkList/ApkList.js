@@ -24,7 +24,7 @@ export const ApkList = () => {
             latestVersion && setVersion(latestVersion)
             versions && setList(prepareAPKListTable(versions, userGroups))
         }
-    }, [latestVersion, versions])
+    }, [latestVersion, versions, userGroups])
 
     useEffect(() => {
         if (!isEmpty(apkList)) {

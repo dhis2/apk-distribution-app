@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-04-04T04:58:29.711Z\n"
-"PO-Revision-Date: 2024-04-04T04:58:29.711Z\n"
+"POT-Creation-Date: 2024-04-27T18:11:06.223Z\n"
+"PO-Revision-Date: 2024-04-27T18:11:06.223Z\n"
 
 msgid ""
 "The initial configuration of the app has been completed and it is now ready "
@@ -75,6 +75,9 @@ msgstr "User Group"
 
 msgid "Search"
 msgstr "Search"
+
+msgid "No user group match the search criteria"
+msgstr "No user group match the search criteria"
 
 msgid "The version {{version}} has been successfully updated."
 msgstr "The version {{version}} has been successfully updated."

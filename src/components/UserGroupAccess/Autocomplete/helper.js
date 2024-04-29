@@ -27,3 +27,12 @@ export const debounce = (func, wait, immediate) => {
         }
     }
 }
+
+/**
+ * Returns a list that filters all the elements already used
+ * */
+
+export const filterUsedElements = (apiElementList, usedElements) =>
+    apiElementList.filter(
+        (e) => !usedElements.some((element) => element.id === e.id)
+    )

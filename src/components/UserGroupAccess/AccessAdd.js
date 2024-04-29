@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import { AccessAutocomplete } from './Autocomplete'
 import { Title } from './Title'
 
-export const AccessAdd = ({ onAdd }) => {
+export const AccessAdd = ({ onAdd, groups }) => {
     const [entity, setEntity] = useState(null)
 
     const onSubmit = () => {
@@ -24,6 +24,7 @@ export const AccessAdd = ({ onAdd }) => {
                 <AccessAutocomplete
                     selected={entity?.displayName || entity?.name}
                     onSelection={setEntity}
+                    groups={groups}
                 />
 
                 <Button type="submit" disabled={!entity} onClick={onSubmit}>
@@ -34,7 +35,7 @@ export const AccessAdd = ({ onAdd }) => {
                 .form-wrapper {
                     color: ${colors.grey900};
                     margin-bottom: 21px;
-                    padding: 8px 12px;
+                    padding: 8px 12px 18px 8px;
                     border-radius: 5px;
                     display: flex;
                     align-items: flex-end;
@@ -47,4 +48,5 @@ export const AccessAdd = ({ onAdd }) => {
 
 AccessAdd.propTypes = {
     onAdd: PropTypes.func.isRequired,
+    groups: PropTypes.array,
 }
