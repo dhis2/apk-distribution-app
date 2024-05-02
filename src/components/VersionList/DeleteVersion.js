@@ -8,15 +8,15 @@ import {
     ButtonStrip,
     Button,
 } from '@dhis2/ui'
+import isEmpty from 'lodash/isEmpty'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { useLatestRelease, useUpdateVersions, useUserGroups } from '../../hooks'
+import { useUpdateVersions, useUserGroups } from '../../hooks'
 import { prepareAPKListTable } from '../../pages/ApkList/helper'
 import { DeleteButton } from '../Button'
 import { deleteElementList } from './helper'
 
 export const DeleteVersion = ({ version, versionList, handleList }) => {
-    const release = useLatestRelease()
     const { userGroups } = useUserGroups()
     const { mutateVersion, mutateList } = useUpdateVersions()
     const [openModal, setOpen] = useState(false)
@@ -37,14 +37,16 @@ export const DeleteVersion = ({ version, versionList, handleList }) => {
 
     const handleDelete = () => {
         const filteredList = deleteElementList(version, versionList)
+        const lastVersion = isEmpty(filteredList)
+            ? {}
+            : {
+                  downloadURL: filteredList[0]?.downloadURL,
+                  version: filteredList[0]?.version,
+              }
 
         const updatePromises = [
             mutateVersion({
-                version: {
-                    downloadURL:
-                        filteredList[0]?.downloadURL || release.downloadURL,
-                    version: filteredList[0]?.version || release.version,
-                },
+                version: { ...lastVersion },
             }),
             mutateList({ versionList: filteredList }),
         ]
