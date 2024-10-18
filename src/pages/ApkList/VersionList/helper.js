@@ -1,5 +1,5 @@
 import orderBy from 'lodash/orderBy'
-import { prepareAPK, prepareAPKListToSave } from '../../pages/UploadApk/helper'
+import { prepareAPK, prepareAPKListToSave } from '../../UploadApk/helper'
 
 /**
  * Returns a list of APKs with a specific version updated
