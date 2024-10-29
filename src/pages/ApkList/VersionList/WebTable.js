@@ -12,7 +12,7 @@ import {
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { DownloadButton } from '../Button'
+import { DownloadButton } from '../../../components'
 import { AssignUserGroup } from './AssignUserGroup'
 import { DeleteVersion } from './DeleteVersion'
 import styles from './WebTable.module.css'

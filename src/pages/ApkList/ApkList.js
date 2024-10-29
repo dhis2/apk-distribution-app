@@ -5,12 +5,12 @@ import isEmpty from 'lodash/isEmpty'
 import isEqual from 'lodash/isEqual'
 import React, { useState, useEffect } from 'react'
 import { useIsAuthorized } from '../../auth'
-import { VersionList } from '../../components'
 import { useDataStore, useUserGroups } from '../../hooks'
 import styles from './ApkList.module.css'
 import { prepareAPKListTable } from './helper'
 import { ResetValues } from './ResetValues/ResetValues'
 import { AboutSection, HeaderContent } from './Sections'
+import { VersionList } from './VersionList'
 
 export const ApkList = () => {
     const { hasAuthority } = useIsAuthorized()

@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-04-29T16:28:42.253Z\n"
-"PO-Revision-Date: 2024-04-29T16:28:42.253Z\n"
+"POT-Creation-Date: 2024-10-18T10:56:30.081Z\n"
+"PO-Revision-Date: 2024-10-18T10:56:30.081Z\n"
 
 msgid ""
 "The initial configuration of the app has been completed and it is now ready "
@@ -79,63 +79,6 @@ msgstr "Search"
 msgid "No user group match the search criteria"
 msgstr "No user group match the search criteria"
 
-msgid "The version {{version}} has been successfully updated."
-msgstr "The version {{version}} has been successfully updated."
-
-msgid "Error occurred while updating version {{version}}."
-msgstr "Error occurred while updating version {{version}}."
-
-msgid "Access"
-msgstr "Access"
-
-msgid "User Group access"
-msgstr "User Group access"
-
-msgid "Close"
-msgstr "Close"
-
-msgid "The version {{version}} has been successfully deleted."
-msgstr "The version {{version}} has been successfully deleted."
-
-msgid "Error occurred while deleting version {{version}}."
-msgstr "Error occurred while deleting version {{version}}."
-
-msgid "Delete app version"
-msgstr "Delete app version"
-
-msgid "Deleting an app version cannot be undone."
-msgstr "Deleting an app version cannot be undone."
-
-msgid "Are you sure you want to delete app version {{version}}?"
-msgstr "Are you sure you want to delete app version {{version}}?"
-
-msgid "Cancel"
-msgstr "Cancel"
-
-msgid "Default"
-msgstr "Default"
-
-msgid "Android OS version"
-msgstr "Android OS version"
-
-msgid "{{min}} (Minimum)"
-msgstr "{{min}} (Minimum)"
-
-msgid "{{recommended}} (Recommended)"
-msgstr "{{recommended}} (Recommended)"
-
-msgid "App Version"
-msgstr "App Version"
-
-msgid "User Groups"
-msgstr "User Groups"
-
-msgid "Minimum"
-msgstr "Minimum"
-
-msgid "Recommended"
-msgstr "Recommended"
-
 msgid "Android Capture app"
 msgstr "Android Capture app"
 
@@ -151,6 +94,9 @@ msgid ""
 msgstr ""
 "This action will remove all APKs and configurations. Are you sure you want "
 "to erase all content and settings?"
+
+msgid "Cancel"
+msgstr "Cancel"
 
 msgid "Erase"
 msgstr "Erase"
@@ -185,6 +131,60 @@ msgstr ""
 
 msgid "Latest version {{version}}"
 msgstr "Latest version {{version}}"
+
+msgid "The version {{version}} has been successfully updated."
+msgstr "The version {{version}} has been successfully updated."
+
+msgid "Error occurred while updating version {{version}}."
+msgstr "Error occurred while updating version {{version}}."
+
+msgid "Access"
+msgstr "Access"
+
+msgid "User Group access"
+msgstr "User Group access"
+
+msgid "Close"
+msgstr "Close"
+
+msgid "The version {{version}} has been successfully deleted."
+msgstr "The version {{version}} has been successfully deleted."
+
+msgid "Error occurred while deleting version {{version}}."
+msgstr "Error occurred while deleting version {{version}}."
+
+msgid "Delete app version"
+msgstr "Delete app version"
+
+msgid "Deleting an app version cannot be undone."
+msgstr "Deleting an app version cannot be undone."
+
+msgid "Are you sure you want to delete app version {{version}}?"
+msgstr "Are you sure you want to delete app version {{version}}?"
+
+msgid "Default"
+msgstr "Default"
+
+msgid "Android OS version"
+msgstr "Android OS version"
+
+msgid "{{min}} (Minimum)"
+msgstr "{{min}} (Minimum)"
+
+msgid "{{recommended}} (Recommended)"
+msgstr "{{recommended}} (Recommended)"
+
+msgid "App Version"
+msgstr "App Version"
+
+msgid "User Groups"
+msgstr "User Groups"
+
+msgid "Minimum"
+msgstr "Minimum"
+
+msgid "Recommended"
+msgstr "Recommended"
 
 msgid "Please provide a valid version"
 msgstr "Please provide a valid version"

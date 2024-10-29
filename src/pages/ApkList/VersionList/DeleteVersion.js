@@ -11,9 +11,9 @@ import {
 import isEmpty from 'lodash/isEmpty'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { useUpdateVersions, useUserGroups } from '../../hooks'
-import { prepareAPKListTable } from '../../pages/ApkList/helper'
-import { DeleteButton } from '../Button'
+import { DeleteButton } from '../../../components'
+import { useUpdateVersions, useUserGroups } from '../../../hooks'
+import { prepareAPKListTable } from '../helper'
 import { deleteElementList } from './helper'
 
 export const DeleteVersion = ({ version, versionList, handleList }) => {

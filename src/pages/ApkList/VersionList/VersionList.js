@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useIsMobile } from '../../hooks'
+import { useIsMobile } from '../../../hooks'
 import { MobileList } from './MobileList'
 import { WebTable } from './WebTable'
 

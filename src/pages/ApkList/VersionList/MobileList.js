@@ -2,7 +2,7 @@ import i18n from '@dhis2/d2-i18n'
 import { Box, Card, Tag } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { DownloadButton } from '../Button'
+import { DownloadButton } from '../../../components'
 import styles from './MobileList.module.css'
 
 export const MobileList = ({ versions, disabled }) => (
