@@ -3,9 +3,10 @@ import classnames from 'classnames'
 import isEmpty from 'lodash/isEmpty'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { DownloadButton, Figure } from '../../components'
+import { Figure } from '../../components'
 import { UploadApkButton } from '../UploadApk'
 import styles from './ApkList.module.css'
+import { LatestDownloadButton } from './LatestDownloadButton'
 
 export const AboutSection = ({
     latest,
@@ -35,20 +36,7 @@ export const AboutSection = ({
             <Figure />
         </div>
 
-        {!isEmpty(latest) && (
-            <div>
-                <DownloadButton
-                    url={latest.downloadURL}
-                    primary
-                    small={false}
-                />
-                <p className={styles.latestVersionDescription}>
-                    {i18n.t('Latest version {{version}}', {
-                        version: latest.version,
-                    })}
-                </p>
-            </div>
-        )}
+        {!isEmpty(latest) && <LatestDownloadButton apkList={versions} />}
 
         {!disabled && (
             <UploadApkButton
