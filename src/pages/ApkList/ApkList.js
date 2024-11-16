@@ -4,20 +4,24 @@ import classnames from 'classnames'
 import isEmpty from 'lodash/isEmpty'
 import isEqual from 'lodash/isEqual'
 import React, { useState, useEffect } from 'react'
+import { useAppContext } from '../../app-context'
 import { useIsAuthorized } from '../../auth'
 import { useDataStore, useUserGroups } from '../../hooks'
 import styles from './ApkList.module.css'
-import { prepareAPKListTable } from './helper'
+import { getLatestDownloadApk, prepareAPKListTable } from './helper'
+import { ListView } from './ListView'
 import { ResetValues } from './ResetValues/ResetValues'
 import { AboutSection, HeaderContent } from './Sections'
 import { VersionList } from './VersionList'
 
 export const ApkList = () => {
+    const { userGroups: currentUserGroups } = useAppContext()
     const { hasAuthority } = useIsAuthorized()
     const { loading, latestVersion, versions } = useDataStore()
     const { userGroups } = useUserGroups()
     const [apkList, setList] = useState([])
     const [currentVersion, setVersion] = useState({})
+    const [hasAccessLatest, setAccessLatest] = useState()
 
     useEffect(() => {
         if (!isEmpty(userGroups)) {
@@ -34,6 +38,16 @@ export const ApkList = () => {
         }
     }, [apkList])
 
+    useEffect(() => {
+        if (!isEmpty(apkList)) {
+            const { isInitialDefault } = getLatestDownloadApk(
+                apkList,
+                currentUserGroups
+            )
+            setAccessLatest(isInitialDefault)
+        }
+    }, [apkList, currentVersion])
+
     return (
         <Card className={styles.appCard}>
             {loading ? (
@@ -49,9 +63,11 @@ export const ApkList = () => {
                         handleList={setList}
                         disabled={!hasAuthority}
                     />
-                    {loading ? (
-                        <CircularLoader />
-                    ) : (
+                    <ListView
+                        hasAuthority={hasAuthority}
+                        loading={loading}
+                        isInitialDefault={hasAccessLatest}
+                    >
                         <>
                             {!isEmpty(apkList) && (
                                 <>
@@ -71,14 +87,11 @@ export const ApkList = () => {
                                         handleList={setList}
                                         disabled={!hasAuthority}
                                     />
+                                    <ResetValues disabled={!hasAuthority} />
                                 </>
                             )}
                         </>
-                    )}
-
-                    {!isEmpty(apkList) && (
-                        <ResetValues disabled={!hasAuthority} />
-                    )}
+                    </ListView>
                 </div>
             )}
         </Card>

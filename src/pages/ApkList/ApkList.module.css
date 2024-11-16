@@ -48,3 +48,8 @@
 .container {
     padding: 0 var(--spacers-dp24) var(--spacers-dp24);
 }
+
+.notice {
+    margin-inline-start: var(--spacers-dp12);
+    margin-inline-end: var(--spacers-dp12);
+}
