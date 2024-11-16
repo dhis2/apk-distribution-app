@@ -72,16 +72,24 @@ export const getLatestDownloadApk = (apkList, userGroups) => {
 
     if (
         !isEmpty(apkBasedOnUser) &&
-        isGreaterVersion(apkBasedOnUser.version, apkDefault.version)
+        isGreaterVersion(apkBasedOnUser?.version, apkDefault?.version)
     ) {
         return {
-            version: apkBasedOnUser.version,
-            url: apkBasedOnUser.downloadURL,
+            version: apkBasedOnUser?.version,
+            url: apkBasedOnUser?.downloadURL,
+            isInitialDefault: true,
+        }
+    }
+
+    if (isEmpty(apkBasedOnUser) && !isEmpty(apkList) && isEmpty(apkDefault)) {
+        return {
+            isInitialDefault: false,
         }
     }
 
     return {
-        version: apkDefault.version,
-        url: apkDefault.downloadURL,
+        version: apkDefault?.version,
+        url: apkDefault?.downloadURL,
+        isInitialDefault: true,
     }
 }

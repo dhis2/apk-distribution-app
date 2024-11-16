@@ -1,34 +1,30 @@
-import { useDataQuery } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
+import { useAppContext } from '../../app-context'
 import { DownloadButton } from '../../components'
 import styles from './ApkList.module.css'
 import { getLatestDownloadApk } from './helper'
 
-const query = {
-    me: {
-        resource: 'me',
-    },
-}
-
 export const LatestDownloadButton = ({ apkList }) => {
-    const { data, loading } = useDataQuery(query)
+    const { userGroups } = useAppContext()
     const [latest, setLatest] = useState({})
+    const [showButton, setShowButton] = useState(false)
 
     useEffect(() => {
-        if (data?.me) {
-            const { url, version } = getLatestDownloadApk(
+        if (userGroups) {
+            const { url, version, isInitialDefault } = getLatestDownloadApk(
                 apkList,
-                data.me.userGroups
+                userGroups
             )
             setLatest({ url, version })
+            setShowButton(isInitialDefault)
         }
-    }, [data, apkList])
+    }, [userGroups, apkList])
 
     return (
         <div>
-            {!loading && (
+            {showButton && (
                 <>
                     <DownloadButton url={latest.url} primary small={false} />
 
