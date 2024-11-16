@@ -8,7 +8,7 @@ const query = {
     me: {
         resource: 'me',
         params: {
-            fields: ['authorities', 'username'],
+            fields: ['authorities', 'username', 'userGroups'],
         },
     },
     dataStore: {
@@ -35,11 +35,12 @@ const AppProvider = ({ children }) => {
         throw error
     }
 
-    const { authorities, username } = data.me
+    const { authorities, username, userGroups } = data.me
     const dataStore = data.dataStore
     const providerValue = {
         authorities,
         username,
+        userGroups,
         dataStore,
     }
 
