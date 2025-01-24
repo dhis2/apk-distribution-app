@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-10-18T10:56:30.081Z\n"
-"PO-Revision-Date: 2024-10-18T10:56:30.081Z\n"
+"POT-Creation-Date: 2024-11-16T18:13:40.652Z\n"
+"PO-Revision-Date: 2024-11-16T18:13:40.652Z\n"
 
 msgid ""
 "The initial configuration of the app has been completed and it is now ready "
@@ -85,6 +85,15 @@ msgstr "Android Capture app"
 msgid "All versions of the application"
 msgstr "All versions of the application"
 
+msgid "Latest version {{version}}"
+msgstr "Latest version {{version}}"
+
+msgid "Download Restricted"
+msgstr "Download Restricted"
+
+msgid "No version available. Please contact your administrator"
+msgstr "No version available. Please contact your administrator"
+
 msgid "Erase all settings"
 msgstr "Erase all settings"
 
@@ -128,9 +137,6 @@ msgstr ""
 "This app is fully functional offline enabling health workers in areas where "
 "there is limited or no Internet connection, continue with their regular "
 "work."
-
-msgid "Latest version {{version}}"
-msgstr "Latest version {{version}}"
 
 msgid "The version {{version}} has been successfully updated."
 msgstr "The version {{version}} has been successfully updated."
