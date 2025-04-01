@@ -15,7 +15,6 @@ import styles from './FirstTimeSetup.module.css'
 
 export const FirstTimeSetup = ({ handleSave, disable }) => {
     const { baseUrl } = useConfig()
-    const initialUrl = `${baseUrl}/dhis-web-commons-about/redirect.action`
 
     return (
         <>
@@ -46,7 +45,7 @@ export const FirstTimeSetup = ({ handleSave, disable }) => {
                     <ButtonStrip end>
                         <Button>
                             <a
-                                href={initialUrl}
+                                href={baseUrl}
                                 className={styles.button_redirect}
                             >
                                 {i18n.t('Exit, do not apply settings')}
