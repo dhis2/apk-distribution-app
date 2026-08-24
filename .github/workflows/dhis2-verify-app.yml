@@ -21,6 +21,7 @@ jobs:
               with:
                   node-version: 16.x
                   cache: yarn
+            - run: yarn install --frozen-lockfile
 
             - name: Generate translations
               run: yarn d2-app-scripts i18n generate
@@ -36,6 +37,7 @@ jobs:
               with:
                   node-version: 16.x
                   cache: yarn
+            - run: yarn install --frozen-lockfile
 
             - name: Generate translations
               run: yarn d2-app-scripts i18n generate
