@@ -16,13 +16,13 @@ jobs:
     lint:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v3
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
               with:
-                  node-version: 16.x
+                  node-version: 20.x
+                  cache: yarn
 
-            - uses: c-hive/gha-yarn-cache@v1
-            - run: yarn install --frozen-lockfile
+            - run: yarn install --frozen-lockfile --ignore-scripts
 
             - name: Generate translations
               run: yarn d2-app-scripts i18n generate
@@ -33,13 +33,13 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v3
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
               with:
-                  node-version: 16.x
+                  node-version: 20.x
+                  cache: yarn
 
-            - uses: c-hive/gha-yarn-cache@v1
-            - run: yarn install --frozen-lockfile
+            - run: yarn install --frozen-lockfile --ignore-scripts
 
             - name: Generate translations
               run: yarn d2-app-scripts i18n generate
